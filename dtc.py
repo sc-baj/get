@@ -1,26 +1,29 @@
 #!/usr/bin/python3
-#Encoding By Draken Kun
+# -*- coding: utf-8 -*-
 
-###+++++AuThoR+++++###
-Author = 'AXOM959'
-Author2 = 'Draken75'
-Github = 'https://github.com/AXOM959'
-Github2 = 'https://github.com/Draken75'
+###---[ Author ]---###
+Author = 'DrakenKun'
+Github = 'github.com/Draken75'
+Facebook = 'NOT___FOUND'
+Version = 'Next Blade V.9'
 
-###+++++++++++[RICH COLOR STYLE]++++++++++++###
-Z2 = '[#0008FF]'
-M2 = '[#0600FF]'
-H2 = '[#000FFF]'
-K2 = '[#001BFF]'
-B2 = '[#1100FF]'
-U2 = '[#1100FF]'
-N2 = '[#0600FF]'
-O2 = '[#0011FF]'
-P2 = '[#0000FF]'
-J2 = '[#0F00FF]'
-A2 = '[#0900FF]'
+Author   = 'Draken Kun'
+Facebook = 'NOT_FOUND)'
+Watsapp = 'Not_Found'
 
-###+++++++++++[ WARNA COLORS ]+++++++++++###
+###----------[ RICH COLOR STYLE ]---------- ###
+Z2 = "[#6A00FF]" # Hitam
+M2 = "[#FF0051]" # Merah
+H2 = "[#FF00CE]" # Hijau
+K2 = "[#FFFFFF]" # Kuning
+B2 = "[#00C8FF]" # Biru
+U2 = "[#DD00FF]" # Ungu
+N2 = "[#00F6FF]" # Pink
+O2 = "[#FF6A00]" # Biru Muda
+P2 = "[#5C00FF]" # Putih
+J2 = "[#0020FF]" # Jingga
+A2 = "[#FF0019]" # 03/Dec/2023 04:23 PM
+#------------[ WARNA-COLOR ]--------------#
 P = '\x1b[1;97m'
 M = '\x1b[1;91m'
 H = '\x1b[1;92m'
@@ -41,7 +44,7 @@ kk = '\033[33m' # KUNING -
 b = '\33[1;96m' # BIRU -
 p = '\x1b[0;34m' # BIRU +
 
-###+++++++++++[[ USER AGENT ]++++++++++++++###
+###----------[ USER AGENT ]---------- ###
 ua_default = 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36'
 ua_samsung = 'Mozilla/5.0 (Linux; Android 5.0; SM-G900P Build/LRX21T; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/43.0.2357.121 Mobile Safari/537.36 [FB_IAB/FB4A;FBAV/35.0.0.48.273;]'
 ua_nokia   = 'nokiac3-00/5.0 (07.20) profile/midp-2.1 configuration/cldc-1.1 mozilla/5.0 applewebkit/420+ (khtml, like gecko) safari/420+'
@@ -56,7 +59,8 @@ ua_windows = 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, li
 ua_chrome  = 'Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.58 Mobile Safari/537.36'
 ua_fb      = 'Mozilla/5.0 (Linux; Android 8.0.0; RNE-L21 Build/HUAWEIRNE-L21; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/100.0.4896.58 Mobile Safari/537.36 [FB_IAB/FB4A;FBAV/360.0.0.30.113;]'
 
-###+++++++++++[[ IMPORT MODULE]++++++++++++++###                 
+
+###---[ IMPORT MODULE ]---###
 import bs4, re, time, requests, datetime, os, sys, random, platform
 from concurrent.futures import ThreadPoolExecutor as tred
 from bs4 import BeautifulSoup as parser
@@ -65,11 +69,11 @@ from time import sleep
 hp = platform.platform()
 ses = requests.Session()
 try:
-        import requests
+        import pyfiglet
 except ImportError:
-        os.system('pip install requests')
-        os.system('pip install bs4')
-        
+        os.system('pip install pyfiglet')
+        os.system('pip install pycryptodome')
+
 def tahunng(fx):
         if len(fx)==15:
                 if fx[:10] in ['1000000000']       :tahunz = '2009'
@@ -98,38 +102,32 @@ def tahunng(fx):
                 tahunz = '2006-2007'
         else:tahunz=''
         return tahunz
-        
-###+++++++++++[ ASCII INI LOGO ]++++++++++++###        
-def logo(n):          
-    return str(f"""
- #####     ###     ######  ### ###  #######  ##   ##           ### ###  ##   ##  ##   ##  
- ## ##    ## ##    ##  ##   ## ##    ##   #  ###  ##            ## ##   ##   ##  ###  ##  
- ##  ##  ##   ##   ##  ##   ####     ##      #### ##            ####    ##   ##  #### ##  
- ##  ##  ##   ##   #####    ###      ####    #######            ###     ##   ##  #######  
- ##  ##  #######   ## ##    ####     ##      ## ####            ####    ##   ##  ## ####  
- ## ##   ##   ##   ## ##    ## ##    ##   #  ##  ###  ###       ## ##   ##   ##  ##  ###  
-#####    ##   ##  #### ##  ### ###  #######  ##   ##  ### #    ### ###   #####   ##   ##  
-                                                      ##    ##                            
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-+                    Multi Brute Force Facebook By Draken75            +
-+======================================================================+
-+  T.e.C.h.N.o. L.o. G. y  |By|D.  R.  A.  K.  E.  N.  K.  U.  N.      +
-+======================================================================+ """)
-def logo2():
-    return str(f"""
- #####     ###    ######   ### ###  #######  ##   ##           ### ###  ##   ##  ##   ##  
- ## ##    ## ##    ##  ##   ## ##    ##   #  ###  ##            ## ##   ##   ##  ###  ##  
- ##  ##  ##   ##   ##  ##   ####     ##      #### ##            ####    ##   ##  #### ##  
- ##  ##  ##   ##   #####    ###      ####    #######            ###     ##   ##  #######  
- ##  ##  #######   ## ##    ####     ##      ## ####            ####    ##   ##  ## ####  
- ## ##   ##   ##   ## ##    ## ##    ##   #  ##  ###  ###       ## ##   ##   ##  ##  ###  
-#####    ##   ##  #### ##  ### ###  #######  ##   ##  ### #    ### ###   #####   ##   ##  
-                                                      ##    ##                            
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-+     C  H  E  C  K  I  N  G      F  O  R       L   O   G   I    N     +
-+======================================================================+""")
 
-###+++++++++++[ Date And Time And Years ++++++++++++###
+###---[ANGGAP INI LOGO ]---###
+def logo(n):
+        return str(f"""
+       {M}   ____   _____  _____  _____   {M} _________       __                          
+       {N}  |    \ |  _  || __  ||  |  |  {N}/   _____/____  |  | __ ________________     
+       {U}  |  |  ||     ||    -||    -|  {U}\_____   \\__  \ |  |/ // __ \_  __ \____ \   
+       {K}  |____/ |__|__||__|__||__|__|  {K}/        \\/ __ \|    <\  ___/| | \\// ___ \   
+                                      {H}/_________(_____/|__|__\\_____>__|  (______\  
+                                
+     {M}•{K}•{H}• {P}Multi Brute Force Facebook By Draken75{M}•{K}•{H}•
+     {M}•{K}•{H}• {P}Author   : Not_Found{H}•{K}•{M}•          
+     {M}•{K}•{H}• {P}Github   : github.com/Draken75 {H}•{K}•{M}•   
+     {M}•{K}•{H}• {P}Facebook : NOT_FOUND {H}•{K}•{M}•""")
+
+def logo2():
+        return str(f"""
+       {M}   ____   _____  _____  _____   {M} _________       __                          
+       {N}  |    \ |  _  || __  ||  |  |  {N}/   _____/____  |  | __ ________________     
+       {U}  |  |  ||     ||    -||    -|  {U}\_____   \\__  \ |  |/ // __ \_  __ \____ \   
+       {K}  |____/ |__|__||__|__||__|__|  {K}/        \\/ __ \|    <\  ___/| | \\// ___ \   
+                                      {H}/_________(_____/|__|__\\_____>__|  (______\
+                                        
+{M}>{K}>{H}> {P}CHECKING FOR LOGIN {H}>{K}>{M}>""")
+
+###---[ TANGGAL ]---###
 sasi = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "December"]
 out = 'Linux-4.9.227-perf+-aarch64-with-libc'
 tete = {"01": "Januari", "02": "Februari", "03": "Maret", "04": "April", "05": "Mai", "06": "Juni", "07": "Juli", "08": "Agustus", "09": "September", "10": "Oktober", "11": "November", "12": "Desember25"}
@@ -148,6 +146,7 @@ sim_ok = f'OK-{hari}-{bulan}-{tahun}.txt'
 sim_cp = f'CP-{hari}-{bulan}-{tahun}.txt'
 warna_warni_biasa=random.choice([H,K,M,O,B,U])
 garis = f" {P}[{warna_warni_biasa}•{P}]"
+
 ###---[ APPEND ]---###
 dump, sandi, metode = [], [], []
 tetel, opsi, proxy = [], [], []
@@ -1541,4 +1540,3 @@ def make():
 
 if __name__=='__main__':
         make()        
-        
