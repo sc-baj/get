@@ -1,41 +1,104 @@
-#----------[ IMPORT-MODULE ]----------#
-import os
-import re
-import json
-import sys
-import random
-import time
-import datetime
-import requests
-
-try:
-	import bs4
-	import rich
-	import requests
-	import stdiomask
-except:
-	os.system("pip install bs4")
-	os.system("pip install rich")
-	os.system("pip install requests")
-	os.system("pip install stdiomask")
-
-#----------[ IMPORT-RICH ]----------#	
-from bs4 import BeautifulSoup as sop	
-from concurrent.futures import ThreadPoolExecutor as tred
+#-----------------[ IMPORT-MODULE ]-------------------
+import requests,bs4,json,os,sys,random,datetime,time,re
+import urllib3,rich,base64
+from rich.table import Table as me
 from rich.console import Console as sol
+from bs4 import BeautifulSoup as sop
+from bs4 import BeautifulSoup as parser
+from concurrent.futures import ThreadPoolExecutor as tred
+from rich.console import Group as gp
+from rich.panel import Panel as nel
+from rich import print as cetak
 from rich.markdown import Markdown as mark
-from rich.tree import Tree
-from rich import print as prints
-from rich.progress import Progress,SpinnerColumn,BarColumn,TextColumn,TimeElapsedColumn
-
-#----------[ GLOBAL-NAME ]----------#
-id, id2, uid = [],[],[]
-tokene, akune = [],[]
-sandine, sandina = [],[]
-method, ugen = [],[]
-loop, ok, cp = 0,0,0
-
-#----------[ USER-CRACK ]----------#  
+from rich.columns import Columns as col
+from rich import print as rprint
+from rich import pretty
+from rich.text import Text as tekz
+try:
+        import rich
+except ImportError:
+        cetak(nel('\t• Sedang Menginstall Modul Rich •'))
+        os.system('pip install rich')
+try:
+        import stdiomask
+except ImportError:
+        cetak(nel('\t• Sedang Menginstall Modul Stdiomask •'))
+        os.system('pip install stdiomask')
+try:
+	import requests
+except ImportError:
+	cetak(nel('\t• Sedang Menginstall Modul Requests •'))
+	os.system('pip install requests && pip install mechanize ')
+#------------------[ USER-AGENT ]-------------------#
+pretty.install()
+CON=sol()
+ugen=[]
+cokbrut=[]
+fields=[]
+ses=requests.Session()
+princp=[]
+try:
+	prox= requests.get('https://api.proxyscrape.com/v2/?request=displayproxies&protocol=socks4&timeout=100000&country=all&ssl=all&anonymity=all').text
+	open('.prox.txt','w').write(prox)
+except Exception as e:
+	print('[[\x1b[1;92m•\x1b[1;97m] [\x1b[1;96mAlvino_adijaya_xy')
+prox=open('.prox.txt','r').read().splitlines()
+for tu in range(1000):
+            a =random.randrange(3,12)
+            b = random.choice([
+            'A37f',
+            'A37fw',
+            'G8231',
+            'SO-41B',
+            'XQ-CC54',
+            'XQ-CQ54',
+            'XQ-AU52',
+            'XQ-BE52',
+            'XQ-BE72',
+            'XQ-CQ72',
+            'SO-41B',
+            'SO-54C',
+            'E6833',
+            'A202SO',
+            'SGP771',
+            'I4193',
+            'XQ-CC72',
+            'E6833',
+            'SOV34',
+            'XQ-CQ54',
+            'H4433',
+            'I4332',
+            'I4312',
+            'M880',
+            'SGP551',
+            'SGP521',
+            'SGP611',
+            'SGP312',
+            'SOV35',
+            'SOV31',
+            'SOV35',
+            'SGP412',
+            'XQ-BE62'])
+            c = random.choice([
+            'zh-TW',
+            'es-es',
+            'pt-br',
+            'zh-cn',
+            'zh-CN',
+            'it-it',
+            'it-it',
+            'en-us',
+            'zh-tw',
+            'en-US',
+            'fa-ir',
+            'id-id'])
+            d = random.randrange(1111, 2999)
+            e = random.randrange(11, 19)
+            f = random.randrange(73, 99)
+            g = random.randrange(4200, 4900)
+            h = random.randrange(40, 150)
+            uaku2 = f'Mozilla/5.0 (Linux; Android {a}; {b} Build/{d}.0.0{e}) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{f}.0.{g}.{h} Mobile Safari/537.36'
+            ugen.append(uaku2)
 
 for xd in range(10000):
     rr = random.randint; rc = random.choice
