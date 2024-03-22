@@ -1,48 +1,41 @@
-#-----------------[ IMPORT-MODULE ]-------------------
-import requests,bs4,json,os,sys,random,datetime,time,re
-import urllib3,rich,base64
-from rich.table import Table as me
-from rich.console import Console as sol
-from bs4 import BeautifulSoup as sop
-from bs4 import BeautifulSoup as parser
-from concurrent.futures import ThreadPoolExecutor as tred
-from rich.console import Group as gp
-from rich.panel import Panel as nel
-from rich import print as cetak
-from rich.markdown import Markdown as mark
-from rich.columns import Columns as col
-from rich import print as rprint
-from rich import pretty
-from rich.text import Text as tekz
+#----------[ IMPORT-MODULE ]----------#
+import os
+import re
+import json
+import sys
+import random
+import time
+import datetime
+import requests
+
 try:
-        import rich
-except ImportError:
-        cetak(nel('\t• Sedang Menginstall Modul Rich •'))
-        os.system('pip install rich')
-try:
-        import stdiomask
-except ImportError:
-        cetak(nel('\t• Sedang Menginstall Modul Stdiomask •'))
-        os.system('pip install stdiomask')
-try:
+	import bs4
+	import rich
 	import requests
-except ImportError:
-	cetak(nel('\t• Sedang Menginstall Modul Requests •'))
-	os.system('pip install requests && pip install mechanize ')
-#------------------[ USER-AGENT ]-------------------#
-pretty.install()
-CON=sol()
-ugen=[]
-cokbrut=[]
-fields=[]
-ses=requests.Session()
-princp=[]
-try:
-	prox= requests.get('https://api.proxyscrape.com/v2/?request=displayproxies&protocol=socks4&timeout=100000&country=all&ssl=all&anonymity=all').text
-	open('.prox.txt','w').write(prox)
-except Exception as e:
-	print('[[\x1b[1;92m•\x1b[1;97m] [\x1b[1;96mAlvino_adijaya_xy')
-prox=open('.prox.txt','r').read().splitlines()
+	import stdiomask
+except:
+	os.system("pip install bs4")
+	os.system("pip install rich")
+	os.system("pip install requests")
+	os.system("pip install stdiomask")
+
+#----------[ IMPORT-RICH ]----------#	
+from bs4 import BeautifulSoup as sop	
+from concurrent.futures import ThreadPoolExecutor as tred
+from rich.console import Console as sol
+from rich.markdown import Markdown as mark
+from rich.tree import Tree
+from rich import print as prints
+from rich.progress import Progress,SpinnerColumn,BarColumn,TextColumn,TimeElapsedColumn
+
+#----------[ GLOBAL-NAME ]----------#
+id, id2, uid = [],[],[]
+tokene, akune = [],[]
+sandine, sandina = [],[]
+method, ugen = [],[]
+loop, ok, cp = 0,0,0
+
+#----------[ USER-CRACK ]----------#
 for tu in range(1000):
             a =random.randrange(3,12)
             b = random.choice([
