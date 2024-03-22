@@ -35,7 +35,7 @@ sandine, sandina = [],[]
 method, ugen = [],[]
 loop, ok, cp = 0,0,0
 
-#----------[ USER-CRACK ]----------#
+#----------[ USER-CRACK ]----------#  
 
 for xd in range(10000):
     rr = random.randint; rc = random.choice
@@ -64,61 +64,13 @@ for xd in range(10000):
 
 #--------[ GENERATE-USER-AGENT ]----------#
 for generate in range(10):
-            a =random.randrange(3,12)
-            b = random.choice([
-            'A37f',
-            'A37fw',
-            'G8231',
-            'SO-41B',
-            'XQ-CC54',
-            'XQ-CQ54',
-            'XQ-AU52',
-            'XQ-BE52',
-            'XQ-BE72',
-            'XQ-CQ72',
-            'SO-41B',
-            'SO-54C',
-            'E6833',
-            'A202SO',
-            'SGP771',
-            'I4193',
-            'XQ-CC72',
-            'E6833',
-            'SOV34',
-            'XQ-CQ54',
-            'H4433',
-            'I4332',
-            'I4312',
-            'M880',
-            'SGP551',
-            'SGP521',
-            'SGP611',
-            'SGP312',
-            'SOV35',
-            'SOV31',
-            'SOV35',
-            'SGP412',
-            'XQ-BE62'])
-            c = random.choice([
-            'zh-TW',
-            'es-es',
-            'pt-br',
-            'zh-cn',
-            'zh-CN',
-            'it-it',
-            'it-it',
-            'en-us',
-            'zh-tw',
-            'en-US',
-            'fa-ir',
-            'id-id'])
-            d = random.randrange(1111, 2999)
-            e = random.randrange(11, 19)
-            f = random.randrange(73, 99)
-            g = random.randrange(4200, 4900)
-            h = random.randrange(40, 150)
-            uaku2 = f'Mozilla/5.0 (Linux; Android {a}; {b} Build/{d}.0.0{e}) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{f}.0.{g}.{h} Mobile Safari/537.36'
-            ugen.append(uaku2)
+	a=random.randrange(1, 9)
+	b=random.randrange(1, 9)
+	c=random.randrange(7, 13)
+	c=random.randrange(73,100)
+	d=random.randrange(4200,4900)
+	e=random.randrange(40,150)
+	uaku=f'Mozilla/5.0 (Linux; Android {a}.{b}; Pixel {b}) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{c}.0.{d}.{e} Mobile Safari/537.36'
 def uaku():
 	try:
 		ua=open('bbnew.txt','r').read().splitlines()
